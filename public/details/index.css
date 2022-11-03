@@ -1,0 +1,23 @@
+body {
+    max-width: 1500px;
+    width: 90%;
+    margin: 0px auto 0px auto;
+}
+
+i {
+    font-size: 50px;
+}
+
+.main-photo {
+    width: 30%;
+}
+
+.active-star {
+    font-size: 15px;
+    color: #096b86;
+}
+
+.non-active-star {
+    font-size: 15px;
+    color: #c5c5c5;
+}
