@@ -24,7 +24,7 @@ img {
     width: 50%;
 }
 
-img .img-adjust {
-    height: 48px;
-    width: 48px;
+.img-adjust {
+    height: 70px;
+    width: 70px;
 }
