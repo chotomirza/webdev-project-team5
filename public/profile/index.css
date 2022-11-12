@@ -23,3 +23,8 @@ img {
 .btn {
     width: 50%;
 }
+
+img .img-adjust {
+    height: 48px;
+    width: 48px;
+}
