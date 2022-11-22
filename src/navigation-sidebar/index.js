@@ -9,7 +9,6 @@ import '../search/index.css'
 
 const NavigationSidebar = (active = 'home') => {
     return(
-        <div id='left_side_bar' className="me-1 d-none d-sm-block col-xl-2 col-lg-2 col-md-2 col-sm-2 ">
 
             <ul className="list-group wd-font-14">
 
@@ -45,7 +44,6 @@ const NavigationSidebar = (active = 'home') => {
             </ul>
 
 
-        </div>
 
     );
 };

@@ -14,7 +14,7 @@ const SearchItem = ({item = {"id": 456,
 
             <div className="row">
                 <div className="col-2">
-                    <img className = 'd-none d-sm-block d-md-none wd-rounded-corners-all-around-less' src={item.image} width="50px" height="50px"/>
+                    <img className = 'd-none d-sm-block d-md-none wd-rounded-corners-all-around-less' src={item.photo} width="50px" height="50px"/>
                 </div>
                 <div className="col-10">
                     <h5>{item.name} </h5>
