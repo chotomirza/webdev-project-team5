@@ -1,0 +1,19 @@
+body{
+
+}
+
+.input-group-text.orr {
+    border-radius: 50px 0px 0px 50px;
+    background-color: white;
+    border-right: none;
+
+}
+
+.active.orr {
+    background-color: #4e5180;
+    border-color: #4e5180;
+}
+
+#search-bar{
+    height: 45px;
+}
