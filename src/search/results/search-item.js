@@ -1,4 +1,5 @@
 import React from "react";
+import '../index.css'
 
 const SearchItem = ({item = {"id": 456,
     "name": "Back Bay Social",
@@ -9,20 +10,20 @@ const SearchItem = ({item = {"id": 456,
 }
 ) => {
     return (
-        <li class="card list-group-item">
+        <li className="list-group-item">
 
-            <div class="row">
-                <div class="col-2">
-                    <img class = 'd-none d-sm-block d-md-none wd-rounded-corners-all-around-less' src={item.image} width="50px" height="50px"/>
+            <div className="row">
+                <div className="col-2">
+                    <img className = 'd-none d-sm-block d-md-none wd-rounded-corners-all-around-less' src={item.image} width="50px" height="50px"/>
                 </div>
-                <div class="col-10">
+                <div className="col-10">
                     <h5>{item.name} </h5>
                     {item.address} <br/>
-                    <span class="text-warning"> {item.rating} <i class="fa fa-star"></i> </span><br/>
+                    <span className="text-warning"> {item.rating} <i className="fa fa-star"></i> </span><br/>
 
             </div>
         </div>
-    <div class="row pt-2">
+    <div className="row pt-2">
         {item.description}
     </div>
 </li>

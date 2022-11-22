@@ -8,7 +8,9 @@ body{
     border-right: none;
 
 }
-
+.card {
+    background-color:black;
+}
 .active.orr {
     background-color: #4e5180;
     border-color: #4e5180;
@@ -16,4 +18,8 @@ body{
 
 #search-bar{
     height: 45px;
+}
+
+#left_side_bar {
+    padding-right: -900px;
 }
