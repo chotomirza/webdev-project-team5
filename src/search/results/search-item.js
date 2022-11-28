@@ -1,4 +1,5 @@
 import React from "react";
+import {FaStar} from "react-icons/fa";
 import '../index.css'
 
 const SearchItem = ({item = {"id": 456,
@@ -19,7 +20,7 @@ const SearchItem = ({item = {"id": 456,
                 <div className="col-10">
                     <h5>{item.name} </h5>
                     {item.address} <br/>
-                    <span className="text-warning"> {item.rating} <i className="fa fa-star"></i> </span><br/>
+                    <span className="text-warning"> {item.rating} <FaStar/> </span><br/>
 
             </div>
         </div>

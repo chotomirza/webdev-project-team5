@@ -2,6 +2,7 @@ import React from 'react';
 import NavigationSidebar from "../navigation-sidebar";
 import ResultsList from "./results/results-list";
 import "./index.css";
+import {FaSearch} from "react-icons/fa";
 
 
 const Search = () => {
@@ -14,11 +15,11 @@ const Search = () => {
                 </div>
 
 
-                <div id='center_section' className="col-xl-8 col-lg-9 col-md-9 col-sm-9">
+                <div id='center_section' className="text-left col-xl-8 col-lg-9 col-md-9 col-sm-9">
 
                     <h3 className="mb-3">What are you looking for?</h3>
                     <div className="input-group override mb-3">
-                        <span className="input-group-text orr"><i className='fa fa-search'></i></span>
+                        <span className="input-group-text orr"><FaSearch/></span>
                         <input id='search-bar' type="text" className="form-control override"
                                placeholder="Search for places and activities"/>
                     </div>
