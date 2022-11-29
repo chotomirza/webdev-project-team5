@@ -1,0 +1,20 @@
+[
+  {
+    "id": 1,
+    "name": "John Doe",
+    "dob": "2001-11-11",
+    "username": "jdoe",
+    "password": "password",
+    "email": "jdoe@gmail.com",
+    "bio": "Hi! my name is john and I love x and y"
+  },
+  {
+    "id": 2,
+    "name": "Jane Dob",
+    "dob": "1999-09-09",
+    "username": "dob-jane",
+    "password": "password",
+    "email": "jane1@gmail.com",
+    "bio": "Hi! my name is jane and I love x and y"
+  }
+]
