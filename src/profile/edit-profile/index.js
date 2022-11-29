@@ -1,6 +1,7 @@
 import NavigationSidebar from "../../navigation-sidebar";
 import React from "react";
 import {useNavigate} from "react-router";
+import EditInfo from "./enter-info";
 
 
 
@@ -13,11 +14,13 @@ function EditProfile(
     "email": "jdoe@gmail.com",
     "bio": "Hi! my name is john and I love x and y"}}) {
 
+
     let navigate = useNavigate();
     const routeChange = () =>{
         let path = `../profile`;
         navigate(path);
     }
+
 
     return(
         <div className="mt-3 row">
@@ -27,35 +30,11 @@ function EditProfile(
 
 
             <div id='center_section' className="text-left col-xl-8 col-lg-9 col-md-9 col-sm-9">
-                <h3 className="mb-3">Edit your profile</h3>
+                <h1 className="text-info mb-3">Edit your profile</h1>
 
-                <form className={"card pt-3 ps-3 pb-3 text-bg-dark bg-gradient"}>
-                <div className={"form-group row text-start"}>
-                <label for={"text-fields-name"} className={"col-lg-2 col-form-label"}>Name:</label>
-                <input id="text-fields-name" className={"form-control w-50"} value={user.name}/><br/>
-               </div>
-               <div className={"pt-2 form-group row text-start"}>
-                   <label for={"text-fields-dob"} className={"col-lg-2 col-form-label"}>Birthday:</label>
-                   <input type={"date"} id={"text-fields-dob"}className={"form-control w-50"}
-                          value={user.dob}/>
+                <EditInfo user={user}/>
 
-               </div>
-                    <div className={"pt-2 form-group row text-start"}>
-                        <label for={"text-fields-username"} className={"col-lg-2 col-form-label"}>Username:</label>
-                        <input id="text-fields-username"  title="Username cannot exceed 16 characters" className={"form-control w-50"} value={user.username}/><br/>
-                    </div>
-                    <div className={"pt-2 form-group row text-start"}>
-                        <label for={"text-fields-password"} className={"col-lg-2 col-form-label"}>Password:</label>
-                        <input id="text-fields-password" title="Your password must be 8 characters"
-                               className={"form-control w-50"} value={user.password}/><br/>
-                    </div>
-                    <div className={"pt-2 form-group row text-start"}>
-                        <label for={"text-fields-email"} className={"col-lg-2 col-form-label"}>Email:</label>
-                        <input id="text-fields-email"
-                               className={"form-control w-50"} value={user.email}/><br/>
-                    </div>
 
-                </form>
                 <button type={"button"} onClick={routeChange}className={"w-100 btn btn-info"} >Save</button>
 
             </div>
