@@ -10,7 +10,7 @@ function EditInfo ({user = {"id": 1,
     "bio": "Hi! my name is john and I love x and y"}})  {
 
     return(
-        <form className={"card pt-3 ps-3 pb-3 text-bg-dark bg-gradient"}>
+        <form className={" pt-3 ps-3 pb-3 "}>
             <div className={"form-group row text-start"}>
                 <label htmlFor={"text-fields-name"} className={"col-lg-2 col-form-label"}>Name:</label>
                 <input id="text-fields-name" className={"form-control w-50"} value={user.name}/><br/>

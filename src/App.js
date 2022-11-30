@@ -4,10 +4,21 @@ import {Routes, Route} from "react-router";
 import Home from "./home";
 import Search from "./search";
 import EditProfile from "./profile/edit-profile";
-import StaticProfile from "./profile/static-profile";
-import Saved from "./saved";
+import StaticProfile from "./profile/static-profile/index";
+import Saved from "./saved/index.js";
+import Signup from "./login/signup";
 
 function App() {
+    const user = {
+        "id": 1,
+            "name": "John Doe",
+            "dob": "2001-11-11",
+            "username": "jdoe",
+            "password": "password",
+            "email": "jdoe@gmail.com",
+            "bio": "Hi! my name is john and I love x and y"
+    }
+    const userOut = null;
 
   return (
 
@@ -16,10 +27,11 @@ function App() {
           <Routes>
             <Route path={'/*'} element={<Home/>}/>
 
-              <Route path={"/saved"} element={<Saved/>}/>
+              <Route path={"/saved"} element={<Saved user={userOut}/>}/>
              <Route path={"/search"} element={<Search/>}/>
-              <Route path={"/profile"} element={<StaticProfile/>}/>
+              <Route path={"/profile"} element={<StaticProfile user={userOut}/>}/>
               <Route path={"/profile/edit"} element={<EditProfile/>}/>
+              <Route path={"/signup"} element={<Signup/>}/>
           </Routes>
         </div>
       </BrowserRouter>
