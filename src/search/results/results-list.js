@@ -1,5 +1,5 @@
 import React from 'react';
-import results from '../../data/restaurant.json';
+import results from '../../data/place.json';
 import SearchItem from './search-item.js';
 
 const ResultsList = () => {

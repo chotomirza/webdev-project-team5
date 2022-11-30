@@ -35,8 +35,9 @@ function EditProfile(
                 <EditInfo user={user}/>
 
 
-                <button type={"button"} onClick={routeChange}className={"w-100 btn btn-info"} >Save</button>
-
+                <div className={"pt-3"}>
+                <button type={"button"} onClick={routeChange}className={" w-100 btn btn-outline-success"} >Save</button>
+                </div>
             </div>
         </div>
     );

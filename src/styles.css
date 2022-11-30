@@ -5,3 +5,12 @@ body{
 heading-color{
     color:darkolivegreen;
 }
+
+.limit-visibility{
+    height:500px;
+    overflow-y:scroll;
+}
+
+.arial-font{
+    font-family:Arial;
+}

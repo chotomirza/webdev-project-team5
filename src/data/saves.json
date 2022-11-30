@@ -1,0 +1,28 @@
+[
+  {
+    "id":1,
+    "userID": 2,
+    "placeID": 123
+  },
+  {
+    "id":1,
+    "userID": 2,
+    "placeID": 234
+  },
+  {
+    "id":2,
+    "userID": 1,
+    "placeID": 234
+  },
+  {
+    "id":3,
+    "userID": 1,
+    "placeID": 345
+  },
+  {
+    "id":4,
+    "userID": 1,
+    "placeID": 456
+  }
+
+]

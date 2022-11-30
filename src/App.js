@@ -15,6 +15,7 @@ function App() {
         <div className={"App container orr"}>
           <Routes>
             <Route path={'/*'} element={<Home/>}/>
+
               <Route path={"/saved"} element={<Saved/>}/>
              <Route path={"/search"} element={<Search/>}/>
               <Route path={"/profile"} element={<StaticProfile/>}/>

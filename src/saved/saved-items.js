@@ -1,6 +1,18 @@
-function SavedItems() {
+import SavedItem from "./saved-item";
+import React from "react";
+
+function SavedItems({lop = new Array()}) {
+    lop = Array.from(lop);
     return(
-        <div>saved items here</div>
+    <div className="limit-visibility row">
+
+        {lop.map(place =>
+                <SavedItem
+                    place={place}/> )}
+
+    </div>
+
+
     );
 }
 

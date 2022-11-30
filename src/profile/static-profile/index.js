@@ -1,7 +1,15 @@
 import NavigationSidebar from "../../navigation-sidebar";
 import React from "react";
-import {FaUser} from "react-icons/fa";
 import DisplayUser from "../display-user";
+import FindUserSaves from "../../saved/find-user-saves";
+import SavedItems from "../../saved/saved-items";
+import FindUserReviews from "../../reviews/find-user-reviews";
+import UserReviews from "../../reviews/user-reviews";
+import {useNavigate} from "react-router";
+
+
+
+
 
 function StaticProfile(
     {user = {"id": 1,
@@ -11,6 +19,18 @@ function StaticProfile(
         "password": "password",
         "email": "jdoe@gmail.com",
         "bio": "Hi! my name is john and I love x and y"}}) {
+
+   const savedPlaces = FindUserSaves(user.id);
+   const reviewAndPlaces = FindUserReviews(user.id);
+   const reviews = reviewAndPlaces[0];
+   const reviewedPlaces = reviewAndPlaces[1];
+
+   let navigate = useNavigate();
+   const routeChange = () => {
+       let path=`../profile/edit`;
+       navigate(path);
+   }
+
     return(
         <div className="mt-3 row">
         <div id='left_side_bar' className="me-1 d-none d-sm-block col-xl-2 col-lg-2 col-md-2 col-sm-2 ">
@@ -23,14 +43,22 @@ function StaticProfile(
             <div className={"row pt-5"}>
                 <DisplayUser user={user}/>
             </div>
-            <ul className={"nav nav-pills mt-5"}>
-                <li className={"nav-item"}>
-                    <a className={"nav-link active"}>Saved Places</a>
-                </li>
-                <li className={"nav-item"}>
-                    <a className={"nav-link"}>Your Reviews</a>
-                </li>
-            </ul>
+
+<button type={"button"} onClick={routeChange} className={"btn btn-outline-success"}>Edit Profile</button>
+        <hr/>
+            <div className={"pt-5"}>
+            <div className={"pb-5"}>
+                <h4 className={"text-start pb-2 "}>Your Saved Places</h4>
+                <SavedItems lop={savedPlaces}/>
+
+            </div>
+                <hr/>
+            <div>
+                <h4 className={"text-start pt-5"}>Your Reviews</h4>
+                <UserReviews lop={reviewedPlaces} lor={reviews}/>
+            </div>
+        </div>
+
         </div>
     </div>
     );
