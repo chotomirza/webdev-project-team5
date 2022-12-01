@@ -24,6 +24,10 @@ function LoggedInStaticProfile(
         let path=`../profile/edit`;
         navigate(path);
     }
+    const routeToAdmin = () => {
+        let path=`../admin`;
+        navigate(path);
+    }
 
     return(
         <div className="mt-3 row">
@@ -38,7 +42,9 @@ function LoggedInStaticProfile(
                     <DisplayUser user={user}/>
                 </div>
 
-                <button type={"button"} onClick={routeChange} className={"btn btn-outline-success"}>Edit Profile</button>
+                <button type={"button"} onClick={routeChange} className={"btn me-5 btn-outline-success"}>Edit Profile</button>
+
+                {user.admin && <button type={"button"} onClick={routeToAdmin} className={"btn btn-outline-success"}>Admin Mode</button>}
                 <hr/>
                 <div className={"pt-5"}>
                     <div className={"pb-5"}>

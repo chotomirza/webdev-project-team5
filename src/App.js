@@ -8,6 +8,7 @@ import StaticProfile from "./profile/static-profile/index";
 import Saved from "./saved/index.js";
 import Signup from "./login/signup";
 import Login from "./login";
+import Admin from "./admin";
 
 function App() {
     const user = {
@@ -43,10 +44,11 @@ function App() {
 
               <Route path={"/saved"} element={<Saved user={userOut}/>}/>
              <Route path={"/search"} element={<Search/>}/>
-              <Route path={"/profile"} element={<StaticProfile user={user}/>}/>
+              <Route path={"/profile"} element={<StaticProfile user={admin}/>}/>
               <Route path={"/profile/edit"} element={<EditProfile/>}/>
               <Route path={"/signup"} element={<Signup/>}/>
               <Route path={"/log"} element={<Login/>}/>
+              <Route path={"/admin"} element={<Admin/>}/>
           </Routes>
         </div>
       </BrowserRouter>
