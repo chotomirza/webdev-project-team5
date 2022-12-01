@@ -23,9 +23,6 @@ function UserReview({review={
                         <h5 className="card-title">{place.name}</h5>
                         <p className="card-text align-top">{review.review} </p>
                     </div>
-                    <div className="row pt-4">
-                        <button href="#" className="btn btn-info rounded-pill">Edit Review</button>
-                    </div>
                 </div>
         </div>
     );

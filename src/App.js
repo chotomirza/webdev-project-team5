@@ -7,6 +7,7 @@ import EditProfile from "./profile/edit-profile";
 import StaticProfile from "./profile/static-profile/index";
 import Saved from "./saved/index.js";
 import Signup from "./login/signup";
+import Login from "./login";
 
 function App() {
     const user = {
@@ -16,8 +17,21 @@ function App() {
             "username": "jdoe",
             "password": "password",
             "email": "jdoe@gmail.com",
-            "bio": "Hi! my name is john and I love x and y"
+            "bio": "Hi! my name is john and I love x and y",
+            "admin": false
     }
+
+    const admin = {
+        "id": 2,
+        "name": "Jane Dob",
+        "dob": "1999-09-09",
+        "username": "dob-jane",
+        "password": "password",
+        "email": "jane1@gmail.com",
+        "bio": "Hi! my name is jane and I love x and y",
+        "admin": true
+    }
+
     const userOut = null;
 
   return (
@@ -29,9 +43,10 @@ function App() {
 
               <Route path={"/saved"} element={<Saved user={userOut}/>}/>
              <Route path={"/search"} element={<Search/>}/>
-              <Route path={"/profile"} element={<StaticProfile user={userOut}/>}/>
+              <Route path={"/profile"} element={<StaticProfile user={user}/>}/>
               <Route path={"/profile/edit"} element={<EditProfile/>}/>
               <Route path={"/signup"} element={<Signup/>}/>
+              <Route path={"/log"} element={<Login/>}/>
           </Routes>
         </div>
       </BrowserRouter>

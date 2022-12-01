@@ -14,7 +14,7 @@ function StaticProfileLoggedOut(){
 
 
                 <div id='center_section' className=" col-xl-8 col-lg-9 col-md-9 col-sm-9">
-                    <Login/>
+                   <h1></h1>
 
             </div>
             </div>

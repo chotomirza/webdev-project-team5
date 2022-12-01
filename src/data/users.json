@@ -6,7 +6,8 @@
     "username": "jdoe",
     "password": "password",
     "email": "jdoe@gmail.com",
-    "bio": "Hi! my name is john and I love x and y"
+    "bio": "Hi! my name is john and I love x and y",
+    "admin": false
   },
   {
     "id": 2,
@@ -15,6 +16,7 @@
     "username": "dob-jane",
     "password": "password",
     "email": "jane1@gmail.com",
-    "bio": "Hi! my name is jane and I love x and y"
+    "bio": "Hi! my name is jane and I love x and y",
+    "admin": true
   }
 ]
