@@ -1,20 +1,11 @@
 import NavigationSidebar from "../navigation-sidebar";
 import React from "react";
-import FindUserSaves from "./find-user-saves";
-import Login from "../login";
-import places from "../data/place.json";
-import saves from "../data/saves.json"
 import {useNavigate} from "react-router";
-import SavedItems from "./saved-items";
 
-function AllSavedPlaces () {
-
-    const savedIds = saves.map((s) => s.placeID);
-    const savedPlaces = places.filter((p) => savedIds.includes(p.id));
-    return(savedPlaces);
+import SavedItemsAll from "./saved-items-all";
+import AllSavedPlaces from "./all-saved-places";
 
 
-}
 
 function SavedLoggedOut() {
 
@@ -42,7 +33,7 @@ function SavedLoggedOut() {
 
                 In the meantime, here are the places that other users have saved
 
-                <SavedItems lop={allSaved}/>
+                <SavedItemsAll lop={allSaved}/>
 
             </div>
         </div>

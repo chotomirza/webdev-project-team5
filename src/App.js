@@ -9,6 +9,8 @@ import Saved from "./saved/index.js";
 import Signup from "./login/signup";
 import Login from "./login";
 import Admin from "./admin";
+import AdminUsers from "./admin/admin-users";
+import AdminReviews from "./admin/admin-reviews";
 
 function App() {
     const user = {
@@ -49,6 +51,9 @@ function App() {
               <Route path={"/signup"} element={<Signup/>}/>
               <Route path={"/log"} element={<Login/>}/>
               <Route path={"/admin"} element={<Admin/>}/>
+              <Route path={"/admin/users"} element={<AdminUsers/>}/>
+              <Route path={"/admin/reviews"} element={<AdminReviews/>}/>
+
           </Routes>
         </div>
       </BrowserRouter>
