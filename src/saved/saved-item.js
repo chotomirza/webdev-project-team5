@@ -13,10 +13,9 @@ function SavedItem({place = {
 
         <div className={"card pt-2 col-sm-5 col-md-4"}>
 
-            <img src = {place.photo} className={"pt-1 card-img-top"}  height="150px" width="100%"/>
             <div className={"card-body"}>
                 <div className={"row row-description"}>
-                    <h5 className={"card-title"}>{place.name}</h5>
+                    <h5 className={"text-success card-title"}>{place.name}</h5><hr/>
                     <p className={"arial-font card-text align-top"}>{place.description}</p>
                 </div>
                 <div className={"row pt-4"}>

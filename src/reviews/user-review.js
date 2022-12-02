@@ -15,12 +15,10 @@ function UserReview({review={
 ) {
     return(
         <div className="card pt-2 col-sm-5 col-md-4">
-            <img
-                src={place.photo}
-                className="card-img-top pt-1"  height="150px" width="100%"/>
                 <div className="card-body">
                     <div className="row row-description">
-                        <h5 className="card-title">{place.name}</h5>
+                        <h5 className="card-title text-success">{place.name}</h5>
+                        <hr/>
                         <p className="card-text align-top">{review.review} </p>
                     </div>
                 </div>

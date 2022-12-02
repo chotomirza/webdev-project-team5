@@ -11,14 +11,12 @@ const SearchItem = ({item = {"id": 456,
 }
 ) => {
     return (
-        <li className="list-group-item">
+        <li className="mt-2 list-group-item">
 
             <div className="row">
-                <div className="col-2">
-                    <img className = 'd-none d-sm-block d-md-none wd-rounded-corners-all-around-less' src={item.photo} width="50px" height="50px"/>
-                </div>
-                <div className="col-10">
-                    <h5>{item.name} </h5>
+
+                <div className="col-12">
+                    <h5 className={"text-success"}>{item.name} </h5>
                     {item.address} <br/>
                     <span className="text-warning"> {item.rating} <FaStar/> </span><br/>
 
