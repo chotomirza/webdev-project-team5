@@ -44,9 +44,9 @@ function App() {
           <Routes>
             <Route path={'/*'} element={<Home/>}/>
 
-              <Route path={"/saved"} element={<Saved user={userOut}/>}/>
+              <Route path={"/saved"} element={<Saved user={admin}/>}/>
              <Route path={"/search"} element={<Search/>}/>
-              <Route path={"/profile"} element={<StaticProfile user={userOut}/>}/>
+              <Route path={"/profile"} element={<StaticProfile user={admin}/>}/>
               <Route path={"/profile/edit"} element={<EditProfile/>}/>
               <Route path={"/signup"} element={<Signup/>}/>
               <Route path={"/log"} element={<Login/>}/>
