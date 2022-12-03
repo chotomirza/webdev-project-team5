@@ -19,6 +19,18 @@ function Signup(){
         let path = `../profile`;
         navigate(path);
     }
+    const {currentUser} = useSelector((state) => state.users)
+        const [username, setUsername] = useState('alice')
+        const [password, setPassword] = useState('alice1234')
+        const dispatch = useDispatch()
+        const handleRegisterBtn = () => {
+            dispatch(registerThunk({username, password}))
+        }
+
+        if(currentUser) {
+            return (<Navigate to={'/profile'}/>)
+        }
+
     return(
         <div className="mt-3 row">
             <div id='left_side_bar' className="me-1 d-none d-sm-block col-xl-2 col-lg-2 col-md-2 col-sm-2 ">
