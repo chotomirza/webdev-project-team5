@@ -26,7 +26,7 @@ function EditInfo ({user = {"id": 1,
                 <input id="text-fields-username" title="Username cannot exceed 16 characters"
                        className={"form-control w-50"} value={user.username}
                        onChange={(e) => setUsername(e.target.value)}
-                                       className="form-control"
+                                       className="form-control w-50"
                                        placeholder="username"
                                        value={username}/>
                        <br/>
@@ -36,7 +36,7 @@ function EditInfo ({user = {"id": 1,
                 <input type="password" id="text-fields-password" title="Your password must be 8 characters"
                        className={"form-control w-50"} value={user.password}
                        onChange={(e) => setPassword(e.target.value)}
-                                       className="form-control"
+                                       className="form-control w-50"
                                        placeholder="password"
                                        type="password"
                                        value={password}/>
