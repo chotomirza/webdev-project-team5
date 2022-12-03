@@ -21,9 +21,12 @@ function findUser(uid) {
     }
 }
 function DisplayUserPublic() {
-    const {user} = useParams();
+    const user = useParams().user;
+    console.log("here");
+
 
     const fullUser = findUser(Number(user));
+
 
     let savedPlaces = [];
     let reviewAndPlaces = [];
@@ -43,7 +46,7 @@ if(fullUser === null){
     return(
         <div className="mt-3 row">
             <div id='left_side_bar' className="me-1 d-none d-sm-block col-xl-2 col-lg-2 col-md-2 col-sm-2 ">
-                <NavigationSidebar active={'saved'}/>
+                <NavigationSidebar active={''}/>
             </div>
 
 
@@ -89,7 +92,7 @@ else{
                     <hr/>
                     <div>
                         <h4 className={"text-start pt-5"}>Reviews</h4>
-                        <UserReviews lop={reviewedPlaces} lor={reviews}/>
+                        <UserReviews reviewAndPlace={reviewAndPlaces}/>
                     </div>
                 </div>
 

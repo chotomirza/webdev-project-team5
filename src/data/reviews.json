@@ -3,25 +3,25 @@
     "id":0,
     "userID": 2,
     "placeID": 123,
-    "review": "this is my review."
+    "review": "user 2 is reviewing 123"
   },
   {
     "id":1,
     "userID": 2,
     "placeID": 234,
-    "review": "I went here blah blah blah and htought blah blah blah"
+    "review": "user 1 is reviewing 234"
   },
   {
     "id":2,
     "userID": 2,
     "placeID": 234,
-    "review": "I also went here blah blah blah and thought blah blah blah as well"
+    "review": "user 2 is reviewing 234"
   },
   {
     "id":3,
     "userID": 1,
     "placeID": 123,
-    "review": "I went here and I had some thoughts about it that I am sharing in this review. This is my review"
+    "review": "user 1 is reviewing 123"
   }
 
 

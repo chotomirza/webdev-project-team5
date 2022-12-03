@@ -12,6 +12,7 @@ import Admin from "./admin";
 import AdminUsers from "./admin/admin-users";
 import AdminReviews from "./admin/admin-reviews";
 import DisplayUserPublic from "./profile/generic-user/display-user-public";
+import PlacePage from "./search/place-page";
 
 
 
@@ -46,8 +47,8 @@ function App() {
       <BrowserRouter>
         <div className={"App container orr"}>
           <Routes>
-            <Route path={'/*'} element={<Home/>}/>
-
+            <Route path={'/*'} element={<Home user={userOut}/>}/>
+              <Route path={"details/:placeId"} element={<PlacePage user={admin}/>}/>
               <Route path={"profile/:user"} element={<DisplayUserPublic/>}/>
               <Route path={"/saved"} element={<Saved user={admin}/>}/>
              <Route path={"/search"} element={<Search/>}/>

@@ -1,29 +1,32 @@
 import {FaTrash} from "react-icons/fa";
+import users from "../data/users.json";
 
-function ReviewCanDelete({review={
-                        "id":1,
-                        "userID": 2,
-                        "placeID": 234,
-                        "review": "I went here blah blah blah and htought blah blah blah"
-                    }}, {place = {
-                        "id": 234,
-                        "name": "Mariel",
-                        "address": "10 Post Office Square #120, Boston, MA, 02109",
-                        "rating": 4.2,
-                        "description":"Upscale venue for Cuban specialties & craft cocktails served in dreamy, elegant surrounds.",
-                        "photo":"../images/mariel.jpeg"
+function findUser(uid){
+    let found = users.filter(u => uid === u.id);
+    return(found[0]);
 
-                    }}
+}
+function ReviewCanDelete(pr
 ) {
-    return(
-        <div className="card pt-2 col-sm-5 col-md-4">
-            <div className="card-body">
-                <div className="row row-description">
-                    <h5 className="card-title">{place.name}</h5>
 
-                    <p className="card-text align-top">{review.review} </p>
+
+
+    pr = pr.pr;
+    let place = pr[0];
+    let review = pr[1];
+
+    let user = findUser(review.userID);
+
+
+    return(
+        <div className="text-start card pt-2 col-sm-5 col-md-4">
+            <div className="card-body">
+                <div className="row row-description mb-4">
+                    <h5 className="text-center card-title text-success">{place.name}</h5>
+                    <span className={"text-primary"}>@{user.username}: <br/></span>
+                    <p className="arial-font card-text align-top">{review.review} </p>
                 </div>
-            <FaTrash/>
+                <span className={"text-center"}><FaTrash/></span>
 
             </div>
         </div>

@@ -58,7 +58,7 @@ function LoggedInStaticProfile(
                     <hr/>
                     <div>
                         <h4 className={"text-start pt-5"}>Your Reviews</h4>
-                        <UserReviews lop={reviewedPlaces} lor={reviews}/>
+                        <UserReviews reviewAndPlace={reviewAndPlaces}/>
                     </div>
                 </div>
 

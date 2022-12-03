@@ -1,8 +1,14 @@
 import React from "react";
 import UserReview from "./user-review";
+import DisplayUser from "../admin/display-user";
 
-function UserReviews({lop = []},
-                     {lor = []}) {
+function UserReviews(reviewAndPlace) {
+    reviewAndPlace = reviewAndPlace.reviewAndPlace;
+
+
+
+    let lop = reviewAndPlace[1];
+    let lor = reviewAndPlace[0];
     lop = Array.from(lop);
     lor = Array.from(lor);
     const lopr = [];
@@ -10,10 +16,11 @@ function UserReviews({lop = []},
         lopr.push([lop[i], lor[i]]);
     }
 
+
     return(
         <div className="limit-visibility row">
             {
-                lopr.map(pr => <UserReview place={pr[0]} review={pr[1]}/>)
+                lopr.map(pr => <UserReview pr={pr}/>)
 
             }
 
