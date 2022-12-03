@@ -1,5 +1,5 @@
 import {createSlice} from "@reduxjs/toolkit";
-import usersArray from "../data/saves.json"
+import usersArray from "../data/users.json"
 
 const usersSlice = createSlice({
                                    name: "user",

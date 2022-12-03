@@ -4,7 +4,7 @@ import {useSelector} from "react-redux";
 
 const FindUserSaves = (id = 1) => {
     const places = useSelector((state) => state.place)
-    const saves = useSelector((state) => state.save)
+    const saves = useSelector((state) => state.saved)
     const userSaves = saves.filter((s) => s.userID === id);
     const savedIds = userSaves.map((s) => s.placeID);
 

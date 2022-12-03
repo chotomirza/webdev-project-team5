@@ -2,7 +2,7 @@ import {createSlice} from "@reduxjs/toolkit";
 import savesArray from "../data/saves.json"
 
 const savesSlice = createSlice({
-                                    name: "save",
+                                    name: "saved",
                                     initialState: savesArray
                                 });
 
