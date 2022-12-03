@@ -38,11 +38,12 @@ function LoggedInStaticProfile(
 
             <div id='center_section' className=" col-xl-8 col-lg-9 col-md-9 col-sm-9">
                 <h3 className={"text-info"}>Hey {user.name}!</h3>
-                <div className={"row pt-5"}>
+                <div className={"row pt-5 mb-5"}>
                     <DisplayUser user={user}/>
                 </div>
 
                 <button type={"button"} onClick={routeChange} className={"btn me-5 btn-outline-success"}>Edit Profile</button>
+                <button type={"button"}  className={"btn me-5 btn-outline-success"}>Logout</button>
 
                 {user.admin && <button type={"button"} onClick={routeToAdmin} className={"btn btn-outline-success"}>Admin Mode</button>}
                 <hr/>
