@@ -1,12 +1,13 @@
-import saves from "../data/saves.json";
-import places from "../data/place.json";
+//import saves from "../data/saves.json";
+import {useSelector} from "react-redux";
+//import places from "../data/place.json";
 
-function AllSavedPlaces () {
-
+function AllSavedPlaces() {
+    const places = useSelector((state) => state.place)
+    const saves = useSelector((state) => state.save)
     const savedIds = saves.map((s) => s.placeID);
     const savedPlaces = places.filter((p) => savedIds.includes(p.id));
-    return(savedPlaces);
-
+    return (savedPlaces);
 
 }
 

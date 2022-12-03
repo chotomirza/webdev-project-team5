@@ -11,21 +11,27 @@ import Login from "./login";
 import Admin from "./admin";
 import AdminUsers from "./admin/admin-users";
 import AdminReviews from "./admin/admin-reviews";
-import DisplayUserPublic from "./profile/generic-user/display-user-public";
+import reviewsReducer from "./reducers/reviews-reducer";
+import {configureStore} from "@reduxjs/toolkit";
+import {Provider} from "react-redux";
+import placesReducer from "./reducers/places-reducer";
+import savesReducer from "./reducers/saves-reducer";
+import usersReducer from "./reducers/users-reducer";
 
-
-
+const store = configureStore(
+    {reducer: {reviews: reviewsReducer, places: placesReducer, saves: savesReducer, users: usersReducer}}
+)
 
 function App() {
     const user = {
         "id": 1,
-            "name": "John Doe",
-            "dob": "2001-11-11",
-            "username": "jdoe",
-            "password": "password",
-            "email": "jdoe@gmail.com",
-            "bio": "Hi! my name is john and I love x and y",
-            "admin": false
+        "name": "John Doe",
+        "dob": "2001-11-11",
+        "username": "jdoe",
+        "password": "password",
+        "email": "jdoe@gmail.com",
+        "bio": "Hi! my name is john and I love x and y",
+        "admin": false
     }
 
     const admin = {
@@ -41,29 +47,29 @@ function App() {
 
     const userOut = null;
 
-  return (
+    return (
+        <Provider store={store}>
+            <BrowserRouter>
+                <div className={"App container orr"}>
+                    <Routes>
+                        <Route path={'/*'} element={<Home/>}/>
 
-      <BrowserRouter>
-        <div className={"App container orr"}>
-          <Routes>
-            <Route path={'/*'} element={<Home/>}/>
+                        <Route path={"/saved"} element={<Saved user={userOut}/>}/>
+                        <Route path={"/search"} element={<Search/>}/>
+                        <Route path={"/profile"} element={<StaticProfile user={admin}/>}/>
+                        <Route path={"/profile/edit"} element={<EditProfile/>}/>
+                        <Route path={"/signup"} element={<Signup/>}/>
+                        <Route path={"/log"} element={<Login/>}/>
+                        <Route path={"/admin"} element={<Admin/>}/>
+                        <Route path={"/admin/users"} element={<AdminUsers/>}/>
+                        <Route path={"/admin/reviews"} element={<AdminReviews/>}/>
 
-              <Route path={"profile/:user"} element={<DisplayUserPublic/>}/>
-              <Route path={"/saved"} element={<Saved user={admin}/>}/>
-             <Route path={"/search"} element={<Search/>}/>
-              <Route path={"/profile"} element={<StaticProfile user={admin}/>}/>
-              <Route path={"/profile/edit"} element={<EditProfile/>}/>
-              <Route path={"/signup"} element={<Signup/>}/>
-              <Route path={"/log"} element={<Login/>}/>
-              <Route path={"/admin"} element={<Admin/>}/>
-              <Route path={"/admin/users"} element={<AdminUsers/>}/>
-              <Route path={"/admin/reviews"} element={<AdminReviews/>}/>
+                    </Routes>
+                </div>
+            </BrowserRouter>
+        </Provider>
 
-          </Routes>
-        </div>
-      </BrowserRouter>
-
-  );
+    );
 }
 
 export default App;
