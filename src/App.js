@@ -11,6 +11,10 @@ import Login from "./login";
 import Admin from "./admin";
 import AdminUsers from "./admin/admin-users";
 import AdminReviews from "./admin/admin-reviews";
+import DisplayUserPublic from "./profile/generic-user/display-user-public";
+
+
+
 
 function App() {
     const user = {
@@ -44,6 +48,7 @@ function App() {
           <Routes>
             <Route path={'/*'} element={<Home/>}/>
 
+              <Route path={"profile/:user"} element={<DisplayUserPublic/>}/>
               <Route path={"/saved"} element={<Saved user={admin}/>}/>
              <Route path={"/search"} element={<Search/>}/>
               <Route path={"/profile"} element={<StaticProfile user={admin}/>}/>

@@ -42,10 +42,12 @@ function LoggedInStaticProfile(
                     <DisplayUser user={user}/>
                 </div>
 
-                <button type={"button"} onClick={routeChange} className={"btn me-5 btn-outline-success"}>Edit Profile</button>
-                <button type={"button"}  className={"btn me-5 btn-outline-success"}>Logout</button>
+                <div className={"row ps-2"}>
+                <button type={"button"} onClick={routeChange} className={"col-3 btn me-5 btn-outline-success"}>Edit Profile</button>
+                <button type={"button"}  className={"btn col-3 me-5 btn-outline-success"}>Logout</button>
 
-                {user.admin && <button type={"button"} onClick={routeToAdmin} className={"btn btn-outline-success"}>Admin Mode</button>}
+                {user.admin && <button type={"button"} onClick={routeToAdmin} className={"btn col-3 btn-outline-success"}>Admin Mode</button>}
+                </div>
                 <hr/>
                 <div className={"pt-5"}>
                     <div className={"pb-5"}>
