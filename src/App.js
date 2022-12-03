@@ -17,6 +17,8 @@ import {Provider} from "react-redux";
 import placesReducer from "./reducers/places-reducer";
 import savesReducer from "./reducers/saves-reducer";
 import usersReducer from "./reducers/users-reducer";
+import DisplayUserPublic from "./profile/generic-user/display-user-public";
+
 
 const store = configureStore(
     {reducer: {reviews: reviewsReducer, places: placesReducer, saves: savesReducer, users: usersReducer}}
@@ -53,7 +55,7 @@ function App() {
                 <div className={"App container orr"}>
                     <Routes>
                         <Route path={'/*'} element={<Home/>}/>
-
+                        <Route path={"profile/:user"} element={<DisplayUserPublic/>}/>
                         <Route path={"/saved"} element={<Saved user={userOut}/>}/>
                         <Route path={"/search"} element={<Search/>}/>
                         <Route path={"/profile"} element={<StaticProfile user={admin}/>}/>
