@@ -24,12 +24,23 @@ function EditInfo ({user = {"id": 1,
             <div className={"pt-2 form-group row text-start"}>
                 <label htmlFor={"text-fields-username"} className={"col-lg-2 col-form-label"}>Username:</label>
                 <input id="text-fields-username" title="Username cannot exceed 16 characters"
-                       className={"form-control w-50"} value={user.username}/><br/>
+                       className={"form-control w-50"} value={user.username}
+                       onChange={(e) => setUsername(e.target.value)}
+                                       className="form-control w-50"
+                                       placeholder="username"
+                                       value={username}/>
+                       <br/>
             </div>
             <div className={"pt-2 form-group row text-start"}>
                 <label htmlFor={"text-fields-password"} className={"col-lg-2 col-form-label"}>Password:</label>
                 <input type="password" id="text-fields-password" title="Your password must be 8 characters"
-                       className={"form-control w-50"} value={user.password}/><br/>
+                       className={"form-control w-50"} value={user.password}
+                       onChange={(e) => setPassword(e.target.value)}
+                                       className="form-control w-50"
+                                       placeholder="password"
+                                       type="password"
+                                       value={password}/>
+                       <br/>
             </div>
             <div className={"pt-2 form-group row text-start"}>
                 <label htmlFor={"text-fields-email"} className={"col-lg-2 col-form-label"}>Email:</label>
