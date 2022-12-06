@@ -7,10 +7,6 @@ import FindUserReviews from "../../reviews/find-user-reviews";
 import UserReviews from "../../reviews/user-reviews";
 import {useNavigate} from "react-router";
 
-
-
-
-
 function LoggedInStaticProfile(
     {user}) {
 
