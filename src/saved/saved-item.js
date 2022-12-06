@@ -1,4 +1,5 @@
 import {FaBook, FaBookmark} from "react-icons/fa";
+import {useNavigate} from "react-router";
 
 function SavedItem({place = {
     "id": 123,
@@ -7,7 +8,13 @@ function SavedItem({place = {
     "rating": 4.4,
     "description": "this is a description of it blah blah ..Small, stylish spot from Chef Ken Oringer serves up celebrated tapas, cocktails & Spanish wines.",
     "photo": "../images/toro.jpeg"
-}}) {
+}})
+{
+    let navigate = useNavigate();
+    const routeChange = () => {
+        let path=`../details/` + place.id;
+        navigate(path);
+    }
 
     return(
 
@@ -19,7 +26,7 @@ function SavedItem({place = {
                     <p className={"arial-font card-text align-top"}>{place.description}</p>
                 </div>
                 <div className={"row pt-4"}>
-                    <button href={"#"} className={"align-bottom btn btn-info rounded-pill"}> See More</button>
+                    <button onClick={routeChange} className={"align-bottom btn btn-info rounded-pill"}> See More</button>
 
                 </div>
                 <FaBookmark />

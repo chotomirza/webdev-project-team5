@@ -9,7 +9,12 @@ const FindAllReviews = () => {
 
     const reviewIds = reviews.map((r) => r.placeID);
 
-    const reviewedPlaces = places.filter((p) => reviewIds.includes(p.id));
+
+    let reviewedPlaces = [];
+    for(let i = 0; i < reviewIds.length; i++){
+        let placeFound = places.filter(p => p.id === reviewIds[i]);
+        reviewedPlaces.push(placeFound[0]);
+    }
 
     return ([reviews, reviewedPlaces]);
 }

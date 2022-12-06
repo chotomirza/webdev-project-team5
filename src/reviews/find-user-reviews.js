@@ -10,7 +10,11 @@ const FindUserReviews = ({id = 1}) => {
     const userReviews = reviews.filter((r) => r.userID === id);
     const reviewIds = userReviews.map((r) => r.placeID);
 
-    const reviewedPlaces = places.filter((p) => reviewIds.includes(p.id));
+    let reviewedPlaces = [];
+    for(let i = 0; i < reviewIds.length; i++){
+        let placeFound = places.filter(p => p.id === reviewIds[i]);
+        reviewedPlaces.push(placeFound);
+    }
 
     return ([userReviews, reviewedPlaces]);
 }

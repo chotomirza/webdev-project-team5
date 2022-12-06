@@ -1,27 +1,28 @@
-function UserReview({review={
-    "id":1,
-    "userID": 2,
-    "placeID": 234,
-    "review": "I went here blah blah blah and htought blah blah blah"
-}}, {place = {
-                        "id": 234,
-                        "name": "Mariel",
-                        "address": "10 Post Office Square #120, Boston, MA, 02109",
-                        "rating": 4.2,
-                        "description":"Upscale venue for Cuban specialties & craft cocktails served in dreamy, elegant surrounds.",
-                        "photo":"../images/mariel.jpeg"
+import {useNavigate} from "react-router";
 
-                    }}
-) {
+function UserReview({pr}
+)
+{
+
+
+    let place = pr[0][0];
+
+    let review = pr[1];
+
+    let navigate = useNavigate();
+    const changeRoute = () =>{
+        let path = `../details/`+ place.id;
+        navigate(path);
+    }
+
     return(
-        <div className="card pt-2 col-sm-5 col-md-4">
-                <div className="card-body">
-                    <div className="row row-description">
+        <div className="border pt-2 col-sm-5 col-md-4" onClick={changeRoute}>
+
+
                         <h5 className="card-title text-success">{place.name}</h5>
                         <hr/>
                         <p className="card-text align-top">{review.review} </p>
-                    </div>
-                </div>
+
         </div>
     );
 }

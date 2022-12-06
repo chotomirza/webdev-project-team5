@@ -2,8 +2,12 @@ import React from "react";
 import UserReview from "../reviews/user-review";
 import ReviewCanDelete from "./review-can-delete";
 
-function UserReviewsAll({lop = []},
-                     {lor = []}) {
+function UserReviewsAll(blopr) {
+
+
+    let lop = blopr.lop;
+    let lor = blopr.lor;
+
 
     lop = Array.from(lop);
     lor = Array.from(lor);
@@ -15,7 +19,7 @@ function UserReviewsAll({lop = []},
     return(
         <div className="row">
             {
-                lopr.map(pr => <ReviewCanDelete place={pr[0]} review={pr[1]}/>)
+                lopr.map(pr => <ReviewCanDelete pr={pr}/>)
 
             }
 

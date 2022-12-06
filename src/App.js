@@ -18,6 +18,7 @@ import placesReducer from "./reducers/places-reducer";
 import savesReducer from "./reducers/saves-reducer";
 import usersReducer from "./reducers/users-reducer";
 import DisplayUserPublic from "./profile/generic-user/display-user-public";
+import PlacePage from "./search/place-page";
 
 
 const store = configureStore(
@@ -54,7 +55,8 @@ function App() {
             <BrowserRouter>
                 <div className={"App container orr"}>
                     <Routes>
-                        <Route path={'/*'} element={<Home/>}/>
+                        <Route path={'/*'} element={<Home user={userOut}/>}/>
+                        <Route path={"details/:placeId"} element={<PlacePage user={admin}/>}/>
                         <Route path={"profile/:user"} element={<DisplayUserPublic/>}/>
                         <Route path={"/saved"} element={<Saved user={userOut}/>}/>
                         <Route path={"/search"} element={<Search/>}/>

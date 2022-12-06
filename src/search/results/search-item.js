@@ -1,6 +1,7 @@
 import React from "react";
 import {FaStar} from "react-icons/fa";
 import '../index.css'
+import {useNavigate} from "react-router";
 
 const SearchItem = ({item = {"id": 456,
     "name": "Back Bay Social",
@@ -10,8 +11,13 @@ const SearchItem = ({item = {"id": 456,
     "photo": "../images/backbaysocial.jpeg"}
 }
 ) => {
+    let navigate = useNavigate();
+    const routeChange = () => {
+        let path=`../details/`+item.id;
+        navigate(path);
+    }
     return (
-        <li className="mt-2 list-group-item">
+        <li onClick={routeChange} className="mt-2 list-group-item">
 
             <div className="row">
 

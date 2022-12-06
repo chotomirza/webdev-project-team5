@@ -1,23 +1,21 @@
 import React from "react";
+import {useNavigate} from "react-router";
 
-function displayUser({user={
-    "id": 1,
-    "name": "John Doe",
-    "dob": "2001-11-11",
-    "username": "jdoe",
-    "password": "password",
-    "email": "jdoe@gmail.com",
-    "bio": "Hi! my name is john and I love x and y",
-    "admin": false
-}}) {
+function DisplayUser({user}) {
+
+    let navigate = useNavigate();
+    const routeChange = () =>{
+        let path = `../profile/`+user.id;
+        navigate(path);
+    }
     return(
         <div className={"card mb-3"}>
             <h3>{user.name}</h3>
-            <h5>@{user.username}</h5>
+            <h5 onClick={routeChange}>@{user.username}</h5>
             <button type={"button"}  className={"btn btn-link text-success"}>Make Admin</button>
 
         </div>
     );
 }
 
-export default displayUser;
+export default DisplayUser;
