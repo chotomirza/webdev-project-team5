@@ -41,8 +41,9 @@ import PlacePage from "./search/place-page";
 
 
 const store = configureStore(
-    {reducer: {reviews: reviewsReducer,
-               places: placesReducer,
+    {reducer: {
+                reviews: reviewsReducer,
+               // places: placesReducer,
                saves: savesReducer,
                users: usersReducer,
 
@@ -50,7 +51,7 @@ const store = configureStore(
                        movies: moviesReducer,
                        omdb: omdbReducer,
                        likes: likesReducer,
-                       reviews: reviewsReducer,
+                       // reviews: reviewsReducer,
                        follows: followsReducer
                }}
 )
@@ -86,7 +87,9 @@ function App() {
                 <div className={"App container orr"}>
                     <Routes>
                         <Route path={'/*'} element={<Home user={userOut}/>}/>
-                        <Route path={"details/:placeId"} element={<PlacePage user={admin}/>}/>
+                        {/*<Route path={"details/:placeId"} element={<OmdbDetails/>}/>*/}
+                        {/*<Route path={"details/:placeId"} element={<PlacePage user={admin}/>}/>*/}
+                        <Route path={"details/:placeId"} element={<PlacePage/>}/>
                         <Route path={"profile/:user"} element={<DisplayUserPublic/>}/>
                         <Route path={"/saved"} element={<Saved user={userOut}/>}/>
                         <Route path={"/search"} element={<Search/>}/>
