@@ -9,3 +9,8 @@ export const findMovieByImdbIdThunk = createAsyncThunk(
     'findMovieByImdbId',
     (imdbID) => findMovieByImdbId(imdbID)
 )
+
+export const createDrink = createAsyncThunk(
+    'createDrink',
+    (imdbID) => createDrink(imdbID)
+)
