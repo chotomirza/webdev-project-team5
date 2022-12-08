@@ -46,12 +46,6 @@ const Search = () => {
                                    {
                                        movies && movies.map((movie) =>
                                            <li key={movie.idDrink} className="list-group-item">
-                                               <i onClick={() => {
-                                                   dispatch(userLikesMovieThunk({
-                                                       uid: 111, mid: movie.idDrink
-                                                   }))
-                                               }} className="float-end bi bi-bookmark me-2"></i>
-                                               <i className="float-end bi bi-bookmark-fill me-2"></i>
                                                <img src={movie.strDrinkThumb} height={50} className="float-start"/>
                                                <Link to={`/details/${movie.idDrink}`} className="float-start ms-4">
                                                    {movie.strDrink}
