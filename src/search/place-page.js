@@ -21,7 +21,9 @@ const PlacePage = () => {
             }
             else {
     return (
+
         <div className="row">
+            <h1>{details.drinks["0"].strDrink}</h1>
             <div className="col">
                 <ul className="list-group">
                     <li className="list-group-item">Category: {details.drinks["0"].strCategory}</li>
