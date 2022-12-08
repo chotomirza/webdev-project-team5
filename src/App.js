@@ -1,3 +1,22 @@
+//omdb section
+import Movies from "./omdb/movies";
+import moviesReducer from "./omdb/movies/movies-reducer";
+import omdbReducer from "./omdb/omdb/omdb-reducer";
+import OmdbSearch from "./omdb/omdb/omdb-search";
+import {likesReducer} from "./omdb/likes/likes-reducer";
+import 'bootstrap/dist/css/bootstrap.min.css';
+import 'bootstrap-icons/font/bootstrap-icons.css';
+import Navigation from "./omdb/navigation";
+import Users from "./omdb/users";
+import Register from "./omdb/users/register";
+import CurrentUser from "./omdb/users/current-user";
+import Profile from "./omdb/users/profile";
+import ProtectedRoute from "./omdb/users/protected-route";
+import OmdbDetails from "./omdb/omdb/omdb-details";
+import PublicProfile from "./omdb/users/public-profile";
+import followsReducer from "./omdb/follows/follows-reducer";
+
+
 import './App.css';
 import {BrowserRouter} from "react-router-dom";
 import {Routes, Route} from "react-router";
@@ -22,7 +41,18 @@ import PlacePage from "./search/place-page";
 
 
 const store = configureStore(
-    {reducer: {reviews: reviewsReducer, places: placesReducer, saves: savesReducer, users: usersReducer}}
+    {reducer: {reviews: reviewsReducer,
+               places: placesReducer,
+               saves: savesReducer,
+               users: usersReducer,
+
+                        //omdb
+                       movies: moviesReducer,
+                       omdb: omdbReducer,
+                       likes: likesReducer,
+                       reviews: reviewsReducer,
+                       follows: followsReducer
+               }}
 )
 
 function App() {
@@ -67,7 +97,7 @@ function App() {
                         <Route path={"/admin"} element={<Admin/>}/>
                         <Route path={"/admin/users"} element={<AdminUsers/>}/>
                         <Route path={"/admin/reviews"} element={<AdminReviews/>}/>
-
+                        <Route path={"/omdb/search"} element={<OmdbSearch/>}/>
                     </Routes>
                 </div>
             </BrowserRouter>

@@ -16,14 +16,11 @@ function UserReview({pr}
     }
 
     return(
-        <div className="border pt-2 col-sm-5 col-md-4" onClick={changeRoute}>
-
-
-                        <h5 className="card-title text-success">{place.name}</h5>
-                        <hr/>
-                        <p className="card-text align-top">{review.review} </p>
-
-        </div>
+        <a className="border pt-2 col-sm-5 col-md-4" onClick={changeRoute}>
+            <h5 className="card-title text-success">{place.name}</h5>
+            <hr/>
+            <p className="card-text align-top">{review.review} </p>
+        </a>
     );
 }
 
