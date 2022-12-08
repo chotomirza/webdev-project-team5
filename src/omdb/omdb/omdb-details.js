@@ -6,7 +6,7 @@ import {createReviewThunk, findReviewsByDrinkThunk} from "../reviews/reviews-thu
 import {Link} from "react-router-dom";
 
 const OmdbDetails = () => {
-    const {imdbID} = useParams()
+    const {drinkID} = useParams()
     const [review, setReview] = useState('')
     const {reviews} = useSelector((state) => state.reviews)
     const {details} = useSelector((state) => state.omdb)
@@ -20,7 +20,7 @@ const OmdbDetails = () => {
     const handlePostReviewBtn = () => {
         dispatch(createReviewThunk({
             review,
-            imdbID
+            drinkID
         }))
     }
     return(
