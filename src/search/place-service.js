@@ -14,8 +14,10 @@ export const findMovieBySearchTerm = async (term) => {
 
 export const findMovieByImdbId = async (drinkID) => {
     // console.log("Drink ID is")
+    // console.log(drinkID)
     // console.log(drinkID.placeId)
-    const response = await axios.get(`${DETAILS_URL}${drinkID.placeId}`)
+    const response = await axios.get(`${DETAILS_URL}${drinkID}`)
+    // const response = await axios.get(`${DETAILS_URL}${drinkID.placeId}`)
 
 
     // console.log("OMDB SERVICE")

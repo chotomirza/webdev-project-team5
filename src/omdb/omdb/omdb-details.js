@@ -28,18 +28,20 @@ const OmdbDetails = () => {
             {/*<h1>{details.Title}</h1>*/}
             {/*{console.log("1")}*/}
             {/*<h1>{console.log(details.drinks)}</h1>*/}
-            <h1>{details.drinks["0"].strDrink}</h1>
+            {/*<h1>{details.drinks["0"].strDrink}</h1>*/}
             <div className="row">
                 <div className="col">
                     <ul className="list-group">
-                        <li className="list-group-item">Category: {details.drinks["0"].strCategory}</li>
-                        <li className="list-group-item">Instruction: {details.drinks["0"].strInstructions}</li>
+                        {/*<li className="list-group-item">Category: {details.drinks["0"].strCategory}</li>*/}
+                        {/*<li className="list-group-item">Instruction: {details.drinks["0"].strInstructions}</li>*/}
                     </ul>
                 </div>
                 <div className="col">
-                    <img src={details.drinks["0"].strDrinkThumb}/>
+                    {/*<img src={details.drinks["0"].strDrinkThumb}/>*/}
                 </div>
-            </div>{
+            </div>
+
+            {
             currentUser &&                <div>
                     <textarea
                         onChange={(e) => setReview(e.target.value)}
@@ -49,7 +51,9 @@ const OmdbDetails = () => {
                     <Link to={`/profile/${review.author._id}`} className="float-end">{review.author.username}
                     </Link></li>)
             }
-            </ul><pre>{JSON.stringify(details, null, 2)}
+            </ul>
+
+            <pre>{JSON.stringify(details, null, 2)}
       </pre></>
     )
 }

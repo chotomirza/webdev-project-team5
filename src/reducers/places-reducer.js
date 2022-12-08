@@ -3,7 +3,7 @@
 //
 // const placesSlice = createSlice({
 //                                     name: "place",
-//                                     initialState: placesArray
+//                                     initialState: ""
 //                                 });
 //
 // export default placesSlice.reducer;

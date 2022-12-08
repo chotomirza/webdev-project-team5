@@ -41,8 +41,9 @@ import PlacePage from "./search/place-page";
 
 
 const store = configureStore(
-    {reducer: {reviews: reviewsReducer,
-               places: placesReducer,
+    {reducer: {
+                reviews: reviewsReducer,
+               // places: placesReducer,
                saves: savesReducer,
                users: usersReducer,
 
