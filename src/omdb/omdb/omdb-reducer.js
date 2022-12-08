@@ -1,6 +1,6 @@
 import {createSlice} from "@reduxjs/toolkit";
-import {findMovieBySearchTerm} from "./omdb-service";
-import {findMovieByImdbIdThunk, findMovieBySearchTermThunk} from "./omdb-thunks";
+import {findDrinkBySearchTerm} from "./omdb-service";
+import {findDrinkByDrinkIdThunk, findDrinkBySearchTermThunk} from "./omdb-thunks";
 
 const initialState = {
     movies: [],
@@ -12,10 +12,10 @@ const omdbReducer = createSlice({
     name: 'omdb',
     initialState,
     extraReducers: {
-        [findMovieBySearchTermThunk.fulfilled]: (state, action) => {
+        [findDrinkBySearchTermThunk.fulfilled]: (state, action) => {
             state.movies = action.payload
         },
-        [findMovieByImdbIdThunk.fulfilled]: (state, action) => {
+        [findDrinkByDrinkIdThunk.fulfilled]: (state, action) => {
             state.details = action.payload
         }
     }

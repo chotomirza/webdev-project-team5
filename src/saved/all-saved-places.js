@@ -12,3 +12,5 @@ function AllSavedPlaces() {
 }
 
 export default AllSavedPlaces;
+
+

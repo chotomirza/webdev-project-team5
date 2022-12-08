@@ -1,16 +1,16 @@
 import {createAsyncThunk} from "@reduxjs/toolkit";
-import {findMovieByImdbId, findMovieBySearchTerm} from "./omdb-service";
+import {findDrinkByDrinkId, findDrinkBySearchTerm} from "./omdb-service";
 
-export const findMovieBySearchTermThunk = createAsyncThunk(
-    'findMovieBySearchTerm',
-    (term) => findMovieBySearchTerm(term)
+export const findDrinkBySearchTermThunk = createAsyncThunk(
+    'findDrinkBySearchTerm',
+    (term) => findDrinkBySearchTerm(term)
 )
-export const findMovieByImdbIdThunk = createAsyncThunk(
-    'findMovieByImdbId',
-    (imdbID) => findMovieByImdbId(imdbID)
+export const findDrinkByDrinkIdThunk = createAsyncThunk(
+    'findDrinkByDrinkId',
+    (drinkID) => findDrinkByDrinkId(drinkID)
 )
 
 export const createDrink = createAsyncThunk(
     'createDrink',
-    (imdbID) => createDrink(imdbID)
+    (drinkID) => createDrink(drinkID)
 )

@@ -6,7 +6,7 @@ import {FaSearch} from "react-icons/fa";
 
 import {useDispatch, useSelector} from "react-redux";
 import {useEffect, useState} from "react";
-import {findMovieBySearchTermThunk} from "../omdb/omdb/omdb-thunks";
+import {findDrinkBySearchTermThunk} from "../omdb/omdb/omdb-thunks";
 import {userLikesMovieThunk} from "../omdb/likes/likes-thunks";
 import {Link} from "react-router-dom";
 
@@ -16,7 +16,7 @@ const Search = () => {
     const {movies, loading} = useSelector((state) => state.omdb)
     const dispatch = useDispatch()
     useEffect(() => {
-        dispatch(findMovieBySearchTermThunk(searchTerm))
+        dispatch(findDrinkBySearchTermThunk(searchTerm))
     }, [])
     return (
             <div className="mt-3 row">
@@ -33,7 +33,7 @@ const Search = () => {
                                        <button
                                            className="btn btn-primary float-end"
                                            onClick={() => {
-                                               dispatch(findMovieBySearchTermThunk(searchTerm))
+                                               dispatch(findDrinkBySearchTermThunk(searchTerm))
                                            }}>Search
                                        </button>
                                        <input

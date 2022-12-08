@@ -1,6 +1,6 @@
 import {useDispatch, useSelector} from "react-redux";
 import {useEffect, useState} from "react";
-import {findMovieBySearchTermThunk} from "./omdb-thunks";
+import {findDrinkBySearchTermThunk} from "./omdb-thunks";
 import {userLikesMovieThunk} from "../likes/likes-thunks";
 import {Link} from "react-router-dom";
 
@@ -9,7 +9,7 @@ const OmdbSearch = () => {
     const {movies, loading} = useSelector((state) => state.omdb)
     const dispatch = useDispatch()
     useEffect(() => {
-        dispatch(findMovieBySearchTermThunk(searchTerm))
+        dispatch(findDrinkBySearchTermThunk(searchTerm))
     }, [])
     return (
         <>
@@ -19,7 +19,7 @@ const OmdbSearch = () => {
                     <button
                         className="btn btn-primary float-end"
                         onClick={() => {
-                            dispatch(findMovieBySearchTermThunk(searchTerm))
+                            dispatch(findDrinkBySearchTermThunk(searchTerm))
                         }}>Search
                     </button>
                     <input
@@ -30,17 +30,17 @@ const OmdbSearch = () => {
                         value={searchTerm}/>
                 </li>
                 {
-                    movies && movies.map((movie) =>
-                        <li key={movie.idDrink} className="list-group-item">
+                    drinks && drinks.map((drink) =>
+                        <li key={drink.idDrink} className="list-group-item">
                             <i onClick={() => {
                                 dispatch(userLikesMovieThunk({
-                                    uid: 111, mid: movie.idDrink
+                                    uid: 111, mid: drink.idDrink
                                 }))
                             }} className="float-end bi bi-hand-thumbs-up"></i>
                             <i className="float-end bi bi-hand-thumbs-down me-2"></i>
-                            <img src={movie.strDrinkThumb} height={50}/>
-                            <Link to={`/details/${movie.idDrink}`}>
-                                {movie.strDrink}
+                            <img src={drink.strDrinkThumb} height={50}/>
+                            <Link to={`/details/${drink.idDrink}`}>
+                                {drink.strDrink}
                             </Link>
                         </li>
                     )
