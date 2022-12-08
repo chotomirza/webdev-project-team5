@@ -31,7 +31,7 @@ const Search = () => {
                    <ul className="list-group">
                                    <li className="list-group-item">
                                        <button
-                                           className="btn btn-primary float-end"
+                                           className="btn btn-success float-end"
                                            onClick={() => {
                                                dispatch(findMovieBySearchTermThunk(searchTerm))
                                            }}>Search
@@ -52,8 +52,8 @@ const Search = () => {
                                                    }))
                                                }} className="float-end bi bi-bookmark me-2"></i>
                                                <i className="float-end bi bi-bookmark-fill me-2"></i>
-                                               <img src={movie.strDrinkThumb} height={50} className="float-start"/>
-                                               <Link to={`/details/${movie.idDrink}`} className="float-start ms-4">
+                                               <img src={movie.strDrinkThumb} height={100} className="float-start"/>
+                                               <Link to={`/details/${movie.idDrink}`} className="text-dark display-9 text-decoration-none float-start ms-4">
                                                    {movie.strDrink}
                                                </Link>
                                            </li>
