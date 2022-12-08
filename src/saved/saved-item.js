@@ -18,7 +18,7 @@ function SavedItem({place = {
 
     return(
 
-        <div className={"card pt-2 col-sm-5 col-md-4"}>
+        <div className={"card pt-2 col-sm-5 col-md-4 bg-transparent"}>
 
             <div className={"card-body"}>
                 <div className={"row row-description"}>
