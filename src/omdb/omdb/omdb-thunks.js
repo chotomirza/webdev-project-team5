@@ -1,5 +1,5 @@
 import {createAsyncThunk} from "@reduxjs/toolkit";
-import {findMovieByImdbId, findMovieBySearchTerm} from "./omdb-service";
+import {findMovieByImdbId, findMovieBySearchTerm} from "../../search/place-service"
 
 export const findMovieBySearchTermThunk = createAsyncThunk(
     'findMovieBySearchTerm',

@@ -13,10 +13,13 @@ export const findMovieBySearchTerm = async (term) => {
 }
 
 export const findMovieByImdbId = async (drinkID) => {
-    const response = await axios.get(`${DETAILS_URL}${drinkID}`)
+    // console.log("Drink ID is")
+    // console.log(drinkID.placeId)
+    const response = await axios.get(`${DETAILS_URL}${drinkID.placeId}`)
 
-    console.log("OMDB SERVICE")
-    console.log(response.data)
+
+    // console.log("OMDB SERVICE")
+    // console.log(await axios.get("https://thecocktaildb.com/api/json/v1/1/lookup.php?i=17105"));
     return response.data
 }
 
