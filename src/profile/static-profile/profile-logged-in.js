@@ -33,7 +33,7 @@ function LoggedInStaticProfile(
 
 
             <div id='center_section' className=" col-xl-8 col-lg-9 col-md-9 col-sm-9">
-                <h3 className={"text-info"}>Hey {user.name}!</h3>
+                 <h3 className={"text-info"}>Hey {user.name}!</h3>
                 <div className={"row pt-5 mb-5"}>
                     <DisplayUser user={user}/>
                 </div>
