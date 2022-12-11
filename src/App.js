@@ -15,7 +15,7 @@ import 'bootstrap-icons/font/bootstrap-icons.css';
 // import ProtectedRoute from "./omdb/users/protected-route";
 // import OmdbDetails from "./omdb/omdb/omdb-details";
 // import PublicProfile from "./omdb/users/public-profile";
-import followsReducer from "./omdb/follows/follows-reducer";
+import followsReducer from "./follows/follows-reducer"
 
 
 import './App.css';
