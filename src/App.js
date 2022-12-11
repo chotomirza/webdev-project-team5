@@ -1,19 +1,19 @@
 //omdb section
-import Movies from "./omdb/movies";
-import moviesReducer from "./omdb/movies/movies-reducer";
+// import Movies from "./omdb/movies";
+// import moviesReducer from "./omdb/movies/movies-reducer";
 import omdbReducer from "./omdb/omdb/omdb-reducer";
 import OmdbSearch from "./omdb/omdb/omdb-search";
 import {likesReducer} from "./omdb/likes/likes-reducer";
 import 'bootstrap/dist/css/bootstrap.min.css';
 import 'bootstrap-icons/font/bootstrap-icons.css';
-import Navigation from "./omdb/navigation";
-import Users from "./omdb/users";
-import Register from "./omdb/users/register";
-import CurrentUser from "./omdb/users/current-user";
-import Profile from "./omdb/users/profile";
-import ProtectedRoute from "./omdb/users/protected-route";
-import OmdbDetails from "./omdb/omdb/omdb-details";
-import PublicProfile from "./omdb/users/public-profile";
+// import Navigation from "./omdb/navigation";
+// import Users from "./omdb/users";
+// import Register from "./omdb/users/register";
+// import CurrentUser from "./omdb/users/current-user";
+// import Profile from "./omdb/users/profile";
+// import ProtectedRoute from "./omdb/users/protected-route";
+// import OmdbDetails from "./omdb/omdb/omdb-details";
+// import PublicProfile from "./omdb/users/public-profile";
 import followsReducer from "./omdb/follows/follows-reducer";
 
 
@@ -33,11 +33,11 @@ import AdminReviews from "./admin/admin-reviews";
 import reviewsReducer from "./reducers/reviews-reducer";
 import {configureStore} from "@reduxjs/toolkit";
 import {Provider} from "react-redux";
-import placesReducer from "./reducers/places-reducer";
+// import placesReducer from "./reducers/places-reducer";
 import savesReducer from "./reducers/saves-reducer";
 import usersReducer from "./reducers/users-reducer";
 import DisplayUserPublic from "./profile/generic-user/display-user-public";
-import PlacePage from "./search/place-page";
+import DrinkDetails from "./search/drink-details"
 
 
 const store = configureStore(
@@ -48,7 +48,7 @@ const store = configureStore(
                users: usersReducer,
 
                         //omdb
-                       movies: moviesReducer,
+                       // movies: moviesReducer,
                        omdb: omdbReducer,
                        likes: likesReducer,
                        // reviews: reviewsReducer,
@@ -57,16 +57,16 @@ const store = configureStore(
 )
 
 function App() {
-    const user = {
-        "id": 1,
-        "name": "John Doe",
-        "dob": "2001-11-11",
-        "username": "jdoe",
-        "password": "password",
-        "email": "jdoe@gmail.com",
-        "bio": "Hi! my name is john and I love x and y",
-        "admin": false
-    }
+    // const user = {
+    //     "id": 1,
+    //     "name": "John Doe",
+    //     "dob": "2001-11-11",
+    //     "username": "jdoe",
+    //     "password": "password",
+    //     "email": "jdoe@gmail.com",
+    //     "bio": "Hi! my name is john and I love x and y",
+    //     "admin": false
+    // }
 
     const admin = {
         "id": 2,
@@ -89,7 +89,7 @@ function App() {
                         <Route path={'/*'} element={<Home user={userOut}/>}/>
                         {/*<Route path={"details/:placeId"} element={<OmdbDetails/>}/>*/}
                         {/*<Route path={"details/:placeId"} element={<PlacePage user={admin}/>}/>*/}
-                        <Route path={"details/:placeId"} element={<PlacePage/>}/>
+                        <Route path={"details/:placeId"} element={<DrinkDetails/>}/>
                         <Route path={"profile/:user"} element={<DisplayUserPublic/>}/>
                         <Route path={"/saved"} element={<Saved user={userOut}/>}/>
                         <Route path={"/search"} element={<Search/>}/>
