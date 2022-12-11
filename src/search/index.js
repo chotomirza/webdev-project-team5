@@ -52,13 +52,7 @@ const Search = () => {
                                                    {drink.strDrink}
                                                </Link>
 
-                                               {/*<button onClick={*/}
-                                               {/*    () => {*/}
-                                               {/*        dispatch(userLikesDrinkThunk())*/}
-                                               {/*    }*/}
-                                               {/*}>*/}
-                                               {/*    Like*/}
-                                               {/*</button>*/}
+
 
                                            </li>
                                        )

@@ -2,6 +2,7 @@ import {useParams} from "react-router";
 import {useDispatch, useSelector} from "react-redux";
 import {useEffect, useState} from "react";
 import {findDrinkByDrinkIdThunk} from "../omdb/omdb/omdb-thunks";
+import {userLikesDrinkThunk} from "../likes/likes-thunks";
 
 const DrinkDetails = () => {
     const placeID = useParams().placeId
@@ -33,9 +34,14 @@ const DrinkDetails = () => {
                     <div className="col">
                         <button type="button" className="btn btn-warning">I tried making this</button>
                     </div>
+
+                    {/* todo: The Thunk does not properly work*/}
                     <div className="col">
-                        <button type="button" className="btn btn-success">Liked it</button>
+                        <button type="button" className="btn btn-success" onClick={()=>{
+                            dispatch(userLikesDrinkThunk) //dispatch(userLikesDrinkThunk())
+                        }}>Liked it</button>
                     </div>
+
                     <div className="col">
                         <button type="button" className="btn btn-danger">Did not like it</button>
                     </div>
