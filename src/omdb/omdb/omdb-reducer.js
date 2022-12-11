@@ -1,5 +1,5 @@
 import {createSlice} from "@reduxjs/toolkit";
-import {findDrinkBySearchTerm} from "./omdb-service";
+// import {findDrinkBySearchTerm} from "./omdb-service";
 import {findDrinkByDrinkIdThunk, findDrinkBySearchTermThunk} from "./omdb-thunks";
 
 const initialState = {

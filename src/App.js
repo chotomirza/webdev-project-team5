@@ -1,9 +1,10 @@
 //omdb section
 // import Movies from "./omdb/movies";
 // import moviesReducer from "./omdb/movies/movies-reducer";
-import omdbReducer from "./omdb/omdb/omdb-reducer";
+import omdbReducer from "./omdb/omdb/omdb-reducer"
 import OmdbSearch from "./omdb/omdb/omdb-search";
-import {likesReducer} from "./omdb/likes/likes-reducer";
+// import {likesReducer} from "./omdb/likes/likes-reducer";
+import {likesReducer} from "./likes/likes-reducer"
 import 'bootstrap/dist/css/bootstrap.min.css';
 import 'bootstrap-icons/font/bootstrap-icons.css';
 // import Navigation from "./omdb/navigation";

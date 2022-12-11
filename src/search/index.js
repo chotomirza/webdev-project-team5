@@ -7,7 +7,8 @@ import {FaSearch} from "react-icons/fa";
 import {useDispatch, useSelector} from "react-redux";
 import {useEffect, useState} from "react";
 import {findDrinkBySearchTermThunk} from "../omdb/omdb/omdb-thunks";
-import {userLikesMovieThunk} from "../omdb/likes/likes-thunks";
+// import {userLikesMovieThunk} from "../omdb/likes/likes-thunks";
+import {userLikesDrinkThunk} from "../likes/likes-thunks"
 import {Link} from "react-router-dom";
 
 
@@ -44,12 +45,21 @@ const Search = () => {
                                            value={searchTerm}/>
                                    </li>
                                    {
-                                       movies && movies.map((movie) =>
-                                           <li key={movie.idDrink} className="list-group-item">
-                                               <img src={movie.strDrinkThumb} height={50} className="float-start"/>
-                                               <Link to={`/details/${movie.idDrink}`} className="float-start ms-4">
-                                                   {movie.strDrink}
+                                       movies && movies.map((drink) =>
+                                           <li key={drink.idDrink} className="list-group-item">
+                                               <img src={drink.strDrinkThumb} height={50} className="float-start" alt={drink.strDrink}/>
+                                               <Link to={`/details/${drink.idDrink}`} className="float-start ms-4">
+                                                   {drink.strDrink}
                                                </Link>
+
+                                               {/*<button onClick={*/}
+                                               {/*    () => {*/}
+                                               {/*        dispatch(userLikesDrinkThunk())*/}
+                                               {/*    }*/}
+                                               {/*}>*/}
+                                               {/*    Like*/}
+                                               {/*</button>*/}
+
                                            </li>
                                        )
                                    }
