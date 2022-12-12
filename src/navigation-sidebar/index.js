@@ -37,6 +37,14 @@ const NavigationSidebar = ({active = "home"}) => {
                     </li>
                 </a>
 
+                <a href="../users" className="text-decoration-none">
+                    <li className={`list-group-item
+                    ${active === 'saved'?'active orr':''}`}>
+                        <span className="d-none d-md-block"> <span className='me-1'><FaBookmark/></span>  Users</span>
+                        <span className="d-md-none"> <FaBookmark/></span>
+                    </li>
+                </a>
+
 
                 <a href="../profile" className="text-decoration-none">
                     <li className={`list-group-item
