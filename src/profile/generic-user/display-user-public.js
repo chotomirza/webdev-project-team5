@@ -20,6 +20,9 @@ function findUser(uid) {
         return(found[0]);
     }
 }
+
+
+
 function DisplayUserPublic() {
     const user = useParams().user;
     console.log("here");
