@@ -44,7 +44,8 @@ import DrinkDetails from "./search/drink-details"
 import CurrentUser from "./omdb/users/current-user";
 // todo: implement all the navigation stuff within navigation sidebar
 // then remove navigation
-import Navigation from "./navigation";
+// import Navigation from "./navigation";
+
 import ProtectedRoute from "./omdb/users/protected-route";
 import Users from "./omdb/users/index";
 import Register from "./omdb/users/register";
@@ -99,7 +100,7 @@ function App() {
             <BrowserRouter>
                 {/*added currentuser here*/}
                 <CurrentUser>
-                    <Navigation/>
+                    {/*<Navigation/>*/}
 
                 <div className={"App container orr"}>
                     <Routes>

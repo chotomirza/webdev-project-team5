@@ -1,7 +1,8 @@
-import {useState} from "react";
+import React, {useState} from "react";
 import {useDispatch, useSelector} from "react-redux";
 import {loginThunk} from "./users-thunk";
 import {Navigate, useNavigate} from "react-router";
+import NavigationSidebar from "../../navigation-sidebar";
 
 const Login = () => {
     const {currentUser} = useSelector((state) => state.users)
@@ -34,6 +35,11 @@ const Login = () => {
             <button
                 className="btn btn-primary w-100"
                 onClick={handleLoginBtn}>Login</button>
+
+            {/* todo: change layout*/}
+            <div id='left_side_bar' className="me-1 d-none d-sm-block col-xl-2 col-lg-2 col-md-2 col-sm-2 ">
+                <NavigationSidebar active={'profile'}/>
+            </div>
         </>
     )
 }

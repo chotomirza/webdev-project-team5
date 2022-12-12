@@ -1,8 +1,9 @@
 import {useParams} from "react-router";
 import {useDispatch, useSelector} from "react-redux";
-import {useEffect, useState} from "react";
+import React, {useEffect, useState} from "react";
 import {findDrinkByDrinkIdThunk} from "../omdb/omdb/omdb-thunks";
 import {userLikesDrinkThunk} from "../likes/likes-thunks";
+import NavigationSidebar from "../navigation-sidebar";
 
 const DrinkDetails = () => {
     const placeID = useParams().placeId
@@ -24,6 +25,9 @@ const DrinkDetails = () => {
     return (
 
         <div className="row">
+            <div id='left_side_bar' className="me-1 d-none d-sm-block col-xl-2 col-lg-2 col-md-2 col-sm-2 ">
+                <NavigationSidebar active={'search'}/>
+            </div>
             <div> -------------------------- Navigation Bar -------------------------- </div>
             <h1>{details.drinks["0"].strDrink}</h1>
 
