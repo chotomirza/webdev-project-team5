@@ -51,6 +51,7 @@ import Users from "./omdb/users/index";
 import Register from "./omdb/users/register";
 import Profile from "./omdb/users/profile";
 import Login from "./omdb/users/login"
+import UsersPage from "./users";
 
 
 const store = configureStore(
@@ -111,6 +112,7 @@ function App() {
                         <Route path={"profile/:user"} element={<DisplayUserPublic/>}/>
                         <Route path={"/saved"} element={<Saved user={userOut}/>}/>
                         <Route path={"/search"} element={<Search/>}/>
+                        <Route path={"/users"} element={<UsersPage/>}/>
                         {/*commented the line below*/}
                         {/*<Route path={"/profile"} element={<StaticProfile user={admin}/>}/>*/}
                         <Route path={"/profile/edit"} element={<EditProfile/>}/>

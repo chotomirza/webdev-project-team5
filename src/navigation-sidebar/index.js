@@ -3,6 +3,7 @@ import {FaHome, FaMap} from "react-icons/fa"
 import {FaMapPin}from "react-icons/fa"
 import {FaBookmark} from "react-icons/fa"
 import {FaUser} from "react-icons/fa"
+import {BsPeople, BsPeopleFill} from "react-icons/bs"
 import '../search/index.css'
 
 
@@ -39,9 +40,9 @@ const NavigationSidebar = ({active = "home"}) => {
 
                 <a href="../users" className="text-decoration-none">
                     <li className={`list-group-item
-                    ${active === 'saved'?'active orr':''}`}>
-                        <span className="d-none d-md-block"> <span className='me-1'><FaBookmark/></span>  Users</span>
-                        <span className="d-md-none"> <FaBookmark/></span>
+                    ${active === 'users'?'active orr':''}`}>
+                        <span className="d-none d-md-block"> <span className='me-1'><BsPeopleFill/></span>  Users</span>
+                        <span className="d-md-none"> <BsPeopleFill/></span>
                     </li>
                 </a>
 

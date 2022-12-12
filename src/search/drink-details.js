@@ -28,13 +28,14 @@ const DrinkDetails = () => {
             <div id='left_side_bar' className="me-1 d-none d-sm-block col-xl-2 col-lg-2 col-md-2 col-sm-2 ">
                 <NavigationSidebar active={'search'}/>
             </div>
-            <div> -------------------------- Navigation Bar -------------------------- </div>
-            <h1>{details.drinks["0"].strDrink}</h1>
 
-            <div className="col">
+
+
+            <div id='center_section' className="text-left col-xl-8 col-lg-9 col-md-9 col-sm-9">
+                <h1>{details.drinks["0"].strDrink}</h1>
                 <img src={details.drinks["0"].strDrinkThumb} width="40%" height="auto"/>
 
-                <div className="row">
+                <div className="row pt-4 pb-4 ">
                     <div className="col">
                         <button type="button" className="btn btn-warning">I tried making this</button>
                     </div>
