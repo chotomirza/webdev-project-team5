@@ -43,8 +43,9 @@ function Home({user}) {
                         <GenericDrinksFunc/>
                     </div>
 
-
-                    <hr/>
+                    <br/>
+                    <br/>
+                    {/*<hr/>*/}
 
                     <h4 className={"display-6 text-info"}>Here's What People Are Saving:</h4>
                     <SavedItemsAll lop={allSaved}/>
@@ -54,6 +55,7 @@ function Home({user}) {
             </div>
         );
     }
+
 
 }
 

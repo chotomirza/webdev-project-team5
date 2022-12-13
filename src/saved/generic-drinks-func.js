@@ -49,7 +49,7 @@ function GenericDrinksFunc() {
                     <hr/>
                     {data.map((cocktail)=> (
                         <div key={cocktail.idDrink}>
-                            <img src={cocktail.strDrinkThumb} alt="#" width="250px"/>
+                            <img src={cocktail.strDrinkThumb} alt="#" width="100%"/>
                         </div>
                     ))}
                 </div>
