@@ -13,6 +13,8 @@ const PublicProfile = () => {
     const {currentUser} = useSelector((state) => state.users)
     const displayFollow = !(currentUser == null)
 
+
+
     let navigate = useNavigate();
     const routeLogin = () => {
         navigate(`../login`)
@@ -22,6 +24,19 @@ const PublicProfile = () => {
     const {publicProfile} = useSelector((state) => state.users)
 
     const {followers, following} = useSelector((state) => state.follows)
+
+    const isFollow = () => {
+        if(displayFollow){
+            console.log(followers)
+           let filteredF =  followers.filter(user => user.follower._id === currentUser._id);
+
+            return filteredF.length <= 0;
+        }
+    }
+
+    let isNotFollowing = isFollow();
+
+
     const dispatch = useDispatch()
     const newFollow = {
         followed:uid,
@@ -59,12 +74,14 @@ const PublicProfile = () => {
                 <div className={"display-3 text-info"}>@{publicProfile && publicProfile.username}</div>
 
                 <div classname={"text-center row "}>
-                {displayFollow && <button
+                {isNotFollowing && displayFollow   && <button
                     onClick={handleFollowBtn}
                     type={"button"}
                     className="btn btn-success">
                     Follow
                 </button>}
+                    {displayFollow && !isNotFollowing && <span className={"text-success"}>You are following this user</span>}
+
 
                 </div>
                 <div className={"text-center row "}>
