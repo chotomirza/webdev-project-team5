@@ -13,17 +13,23 @@ const Profile = () => {
         navigate('/login')
     }
     return(
-        <>
+        <div className="mt-3 row">
+
             <div id='left_side_bar' className="me-1 d-none d-sm-block col-xl-2 col-lg-2 col-md-2 col-sm-2 ">
                 <NavigationSidebar active={'profile'}/>
             </div>
+            <div id='center_section' className="text-left col-xl-8 col-lg-9 col-md-9 col-sm-9">
 
-            <h1>Profile</h1>
             {
                 currentUser &&
-                <h2>Welcome new user: {currentUser.username}</h2>
+                <div>
+                    <span className={"display-3 text-info"}>Welcome {currentUser.firstName}! </span>
+                    <br/>
+                    uesrname@{currentUser.username}
+                </div>
 
             }
+
 
             <h2>Password: {currentUser.password}</h2>
 
@@ -34,7 +40,8 @@ const Profile = () => {
                 onClick={handleLogoutBtn}>
                 Logout
             </button>
-        </>
+            </div>
+        </div>
     )
 }
 export default Profile

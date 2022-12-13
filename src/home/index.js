@@ -25,8 +25,7 @@ function Home({user}) {
                     <p>Here you can search for recipes on your favorite cocktails!<br/>
                     Be sure to leave a review on your favorite (and least favorite) recipes!</p>
                 <hr/>
-                    <h4 className={"display-6 text-info"}>Here's What People Are Saving:</h4>
-                    <SavedItemsAll lop={allSaved}/>
+
 
                     <hr/>
                     <h4 className={"display-6 text-info"}>Trending Drinks:</h4>

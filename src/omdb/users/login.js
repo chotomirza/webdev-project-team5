@@ -22,7 +22,12 @@ const Login = () => {
         return (<Navigate to={'/profile'}/>)
     }
     return(
-        <>
+        <div className="mt-3 row">
+            <div id='left_side_bar' className="me-1 d-none d-sm-block col-xl-2 col-lg-2 col-md-2 col-sm-2 ">
+                <NavigationSidebar active={''}/>
+            </div>
+            <div id='center_section' className="text-left col-xl-8 col-lg-9 col-md-9 col-sm-9">
+
             <h1>Login</h1>
             <input
                 onChange={(e) => setUsername(e.target.value)}
@@ -36,11 +41,8 @@ const Login = () => {
                 className="btn btn-primary w-100"
                 onClick={handleLoginBtn}>Login</button>
 
-            {/* todo: change layout*/}
-            <div id='left_side_bar' className="me-1 d-none d-sm-block col-xl-2 col-lg-2 col-md-2 col-sm-2 ">
-                <NavigationSidebar active={'profile'}/>
             </div>
-        </>
+        </div>
     )
 }
 export default Login

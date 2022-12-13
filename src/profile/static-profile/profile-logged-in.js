@@ -10,10 +10,6 @@ import {useNavigate} from "react-router";
 function LoggedInStaticProfile(
     {user}) {
 
-    const savedPlaces = FindUserSaves(user.id);
-    const reviewAndPlaces = FindUserReviews(user.id);
-    const reviews = reviewAndPlaces[0];
-    const reviewedPlaces = reviewAndPlaces[1];
 
     let navigate = useNavigate();
     const routeChange = () => {
