@@ -3,6 +3,8 @@ import React, {useEffect} from "react";
 import {findAllUsersThunk} from "./users-thunk";
 import NavigationSidebar from "../../navigation-sidebar";
 import {useNavigate} from "react-router";
+import DisplayUserPublic from "../../profile/generic-user/display-user-public";
+import ShowUser from "./show-user";
 
 const Users = () => {
     let navigate = useNavigate();
@@ -28,13 +30,11 @@ const Users = () => {
             <div id='center_section' className="text-left col-xl-8 col-lg-9 col-md-9 col-sm-9">
 
 
-            <h1>Users {users.length}</h1>
-            <ul className="list-group">
+            <span className={"display-2 text-info"}>Users</span>
+            <ul className="text-start list-group">
                 {
                     users.map((user) =>
-                    <li key={user._id} className="list-group-item">
-                        {user.username}
-                    </li>
+                    <ShowUser user={user}/>
                     )
                 }
             </ul>
