@@ -10,9 +10,9 @@ function ShowUser({user}){
         navigate(path);
     }
     return(
-        <li className={"list-group-item"} onClick={routeChange}>
-            <h3 className={"text-start text-success"}>{user.firstName} {user.lastName}</h3>
-            @{user.username}
+        <li className={"list-group-item text-primary"} onClick={routeChange}>
+            <h3 className={"text-start text-info"}>{user.firstName} {user.lastName}</h3>
+            <u>   @{user.username}  </u>
         </li>
     )
 }
