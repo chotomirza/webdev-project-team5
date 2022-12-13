@@ -14,6 +14,13 @@ const NavigationSidebar = ({active = "home"}) => {
             <ul className="list-group wd-font-14">
 
 
+                    <li className={`list-group-item`}>
+                        <span className="d-none d-md-block "> <span className="me-1"></span>
+                            <b className="text-muted">POUR DECISIONS</b></span>
+                    </li>
+
+
+
                 <a href="../" className="text-decoration-none">
                     <li className={`list-group-item
                     ${active === 'home'?'active orr':''}`}>
