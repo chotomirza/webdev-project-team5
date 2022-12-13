@@ -3,7 +3,8 @@ import React from "react";
 import SavedItemsAll from "../saved/saved-items-all";
 import AllSavedPlaces from "../saved/all-saved-places";
 import SomeSavedPlaces from "../saved/some-saved";
-import GenericDrinksFunc from "../saved/generic-drinks-func"
+import GenericDrinksFunc from "../saved/generic-drinks-func";
+import {TbCrown} from "react-icons/tb";
 
 
 
@@ -27,8 +28,7 @@ function Home({user}) {
 
                     <hr/>
                     <p>Here you can search for recipes on your favorite cocktails!<br/>
-                    Be sure to like your favorite recipes
-                        and compete to be the first to try the most number of drink!</p>
+                    <TbCrown/> Compete with other users to collect the most number of drinks! <TbCrown/></p>
                 <hr/>
                     <h4 className={"display-6 text-info"}>Trending Drinks:</h4>
                     <div className={'row'}>
