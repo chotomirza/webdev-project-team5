@@ -43,6 +43,8 @@ const PublicProfile = () => {
         dispatch(findFollowersThunk(uid))
         dispatch(findFollowingThunk(uid))
 
+
+
     }, [uid])
 
     console.log(publicProfile)

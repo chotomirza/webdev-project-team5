@@ -3,9 +3,13 @@ import React from "react";
 import SavedItemsAll from "../saved/saved-items-all";
 import AllSavedPlaces from "../saved/all-saved-places";
 import SomeSavedPlaces from "../saved/some-saved";
+import GenericDrinksFunc from "../saved/generic-drinks-func"
+
+
 
 function Home({user}) {
     const allSaved = SomeSavedPlaces(3);
+    // const allSavedGeneric = SomeSavedPlacesGeneric(3);
 
     if(user === null){
         return(
@@ -25,7 +29,12 @@ function Home({user}) {
                     <SavedItemsAll lop={allSaved}/>
 
                     <hr/>
-                    <h4 className={"display-6 text-info"}>Here's What People Are Saying:</h4>
+                    <h4 className={"display-6 text-info"}>Trending Drinks:</h4>
+                    <div className={'row'}>
+                        <GenericDrinksFunc/>
+                        <GenericDrinksFunc/>
+                        <GenericDrinksFunc/>
+                    </div>
 
 
 
