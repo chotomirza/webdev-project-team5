@@ -1,4 +1,5 @@
-import {useParams} from "react-router";
+import {useNavigate, useParams} from "react-router";
+import {BiSad} from "react-icons/bi";
 import {useDispatch, useSelector} from "react-redux";
 import React, {useEffect, useState} from "react";
 import {findDrinkByDrinkIdThunk} from "../omdb/omdb/omdb-thunks";
@@ -17,7 +18,19 @@ const DrinkDetails = () => {
         dispatch(findLikesThunk)
     })
 
+
+
     const {currentUser} = useSelector((state) => state.users)
+
+    let loggedIn = !(currentUser == null)
+
+    const isCollected = () => {
+        let filteredC = likes.filter(like => like.drink == placeID);
+        return filteredC
+    }
+
+    let isDrinkCollected = isCollected().length > 0
+    console.log(isDrinkCollected)
 
     const dispatch = useDispatch()
     useEffect(() => {
@@ -37,6 +50,11 @@ const DrinkDetails = () => {
 
     const one = {};
     const two = JSON.stringify(details, null, 2);
+    let navigate = useNavigate();
+    const routeLogin = () => {
+        navigate(`../login`)
+    }
+
 
     if (JSON.stringify(one) === two) {
         return <>Loading...</>
@@ -62,9 +80,21 @@ const DrinkDetails = () => {
 
 
                         <div className="col">
-                            <button type="button" className="btn btn-warning" onClick={handleLikeBtn}>{
+                            {loggedIn && (isDrinkCollected || <button type="button" className="btn btn-warning" onClick={handleLikeBtn}>{
                                 //dispatch(userLikesDrinkThunk())
-                            }<BiDrink/>       C O L L E C T       <BiDrink/></button>
+                            }<BiDrink/>       C O L L E C T       <BiDrink/></button>)}
+                            {loggedIn && isDrinkCollected && <div  className="text-light bg-danger">{
+                                //dispatch(userLikesDrinkThunk())
+                            }    THIS DRINK HAS ALREADY BEEN COLLECTED    <BiSad/></div>
+                            }
+
+                            {loggedIn || <button
+                                onClick={routeLogin}
+                                type={"button"}
+
+                                className=" btn btn-transparent text-primary">
+                                Please click here to login in order to follow users!
+                            </button>}
                         </div>
 
                         {/*<div className="col">*/}
