@@ -28,12 +28,15 @@ const Users = () => {
             <div id='center_section' className="text-left col-xl-8 col-lg-9 col-md-9 col-sm-9">
 
 
-            <h1>Users {users.length}</h1>
+            {/*<h1>Number of Users: {users.length}</h1>*/}
+                <h1>List of Users:</h1>
             <ul className="list-group">
                 {
                     users.map((user) =>
                     <li key={user._id} className="list-group-item">
-                        {user.username}
+                        <a href={"/users/" + user._id}>
+                            {user.username}
+                        </a>
                     </li>
                     )
                 }

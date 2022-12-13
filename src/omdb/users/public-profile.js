@@ -22,7 +22,7 @@ const PublicProfile = () => {
     useEffect(() => {
         dispatch(findUserByIdThunk(uid))
         dispatch(findReviewsByAuthorThunk(uid))
-        dispatch
+        // dispatch
 
     }, [uid])
 
