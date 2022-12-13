@@ -1,4 +1,4 @@
-import {useParams} from "react-router";
+import {useNavigate, useParams} from "react-router";
 import React, {useEffect} from "react";
 import {useDispatch, useSelector} from "react-redux";
 import {findUserByIdThunk} from "./users-thunk";
@@ -10,19 +10,55 @@ import NavigationSidebar from "../../navigation-sidebar";
 
 const PublicProfile = () => {
     const {uid} = useParams()
+    const {currentUser} = useSelector((state) => state.users)
+    const displayFollow = !(currentUser == null)
+
+
+
+    let navigate = useNavigate();
+    const routeLogin = () => {
+        navigate(`../login`)
+    }
+
+
     const {publicProfile} = useSelector((state) => state.users)
 
     const {followers, following} = useSelector((state) => state.follows)
+
+    const isFollow = () => {
+        if(displayFollow){
+            console.log(followers)
+           let filteredF =  followers.filter(user => user.follower._id === currentUser._id);
+
+            return filteredF.length <= 0;
+        }
+    }
+
+    let isNotFollowing = isFollow();
+
+
     const dispatch = useDispatch()
+    const newFollow = {
+        followed:uid,
+        follower:""
+    }
+    if(displayFollow){
+        newFollow.follower = currentUser._id
+    }
+
+
+
     const handleFollowBtn = () => {
-        dispatch(followUserThunk({
-            followed: uid
-        }))
+
+        dispatch(followUserThunk(newFollow))
     }
     useEffect(() => {
         dispatch(findUserByIdThunk(uid))
         dispatch(findReviewsByAuthorThunk(uid))
-        // dispatch
+        dispatch(findFollowersThunk(uid))
+        dispatch(findFollowingThunk(uid))
+
+
 
     }, [uid])
 
@@ -34,13 +70,33 @@ const PublicProfile = () => {
             </div>
 
 
-            <div id='center_section' className="text-left col-xl-8 col-lg-9 col-md-9 col-sm-9">
-                <button
+            <div id='center_section' className="text-left col-xl-8 col-lg-9 col-md-9 col-sm-9 justify-content-center">
+                <div className={"display-3 text-info"}>@{publicProfile && publicProfile.username}</div>
+
+                <div classname={"text-center row "}>
+                {isNotFollowing && displayFollow   && <button
                     onClick={handleFollowBtn}
-                    className="btn btn-success float-end">
+                    type={"button"}
+                    className="btn btn-success">
                     Follow
-                </button>
-                <h1>{publicProfile && publicProfile.username}</h1>
+                </button>}
+                    {displayFollow && !isNotFollowing && <span className={"text-success"}>You are following this user</span>}
+
+
+                </div>
+                <div className={"text-center row "}>
+                {displayFollow || <button
+                    onClick={routeLogin}
+                    type={"button"}
+
+                    className=" btn btn-transparent text-primary">
+                    Please click here to login in order to follow users!
+                </button>}
+                </div>
+                <div className={"row pt-2"}>
+                    <hr/>
+
+
 
                 <h2>Following</h2>
                 <div className="list-group">
@@ -61,6 +117,7 @@ const PublicProfile = () => {
                             </Link>
                         )
                     }
+                </div>
                 </div>
 
             </div>
