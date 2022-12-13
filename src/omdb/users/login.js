@@ -6,10 +6,13 @@ import NavigationSidebar from "../../navigation-sidebar";
 
 const Login = () => {
     const {currentUser} = useSelector((state) => state.users)
-    const [username, setUsername] = useState('alice')
-    const [password, setPassword] = useState('alice1234')
+    const [username, setUsername] = useState('')
+    const [password, setPassword] = useState('')
     const dispatch = useDispatch()
     const navigate = useNavigate()
+    const routeSignUp = () => {
+        navigate(`../signup`)
+    }
     const handleLoginBtn = () => {
         try {
             dispatch(loginThunk({username, password}))
@@ -32,7 +35,7 @@ const Login = () => {
             <h1>Login</h1>
             <input
                 onChange={(e) => setUsername(e.target.value)}
-                className="form-control"
+                className="form-control arial-font"
                 placeholder="username"
                 value={username}/>
             <input
@@ -41,6 +44,9 @@ const Login = () => {
             <button
                 className="btn btn-primary w-100"
                 onClick={handleLoginBtn}>Login</button>
+
+
+                <button className={"btn btn-outline text-primary w-100"} onClick={routeSignUp}>Don't have an account? Sign up here</button>
 
             </div>
         </div>

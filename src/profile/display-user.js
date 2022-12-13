@@ -11,20 +11,17 @@ function DisplayUser ({user}) {
     <div className={"ps-5 col-8"}>
         <div className={"row"}>
             <div className={"text-start col-6 text-secondary"}>Name:</div>
-            <div className={"text-start col-6"}>{user.name}</div>
+            <div className={"text-start col-6"}>{user.firstName} {user.lastName}</div>
         </div>
         <div className={"row"}>
-            <div className={"text-start col-6 text-secondary"}>Birthday:</div>
-            <div className={"text-start col-6"}>{user.dob}</div>
+            <div className={"text-start col-6 text-secondary"}>Password:</div>
+            <div className={"text-start col-6"}>{user.password}</div>
         </div>
         <div className={"row"}>
             <div className={"text-start col-6 text-secondary"}>Email:</div>
             <div className={"text-start col-6"}>{user.email}</div>
         </div>
-        <div className={"pt-3 row"}>
-            <div className={"text-start col-6 text-secondary"}>About you:</div>
-            <div className={"text-start col-6"}>{user.bio}</div>
-        </div>
+
 
     </div>
  </>

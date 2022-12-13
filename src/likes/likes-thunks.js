@@ -1,5 +1,5 @@
 import {createAsyncThunk} from "@reduxjs/toolkit";
-import {findLikesByUser, userLikesDrink} from "./likes-service";
+import {findLikes, findLikesByUser, userLikesDrink} from "./likes-service";
 // import {findReviewsByAuthor} from "../omdb/reviews/reviews-service";
 
 export const userLikesDrinkThunk = createAsyncThunk(
@@ -20,6 +20,5 @@ export const findLikeByUserThunk = createAsyncThunk(
 
 export const findLikesThunk = createAsyncThunk(
     'findLikes',
-    async (uid) =>{
-        return  findLikes()}
+    return  findLikes()
 )

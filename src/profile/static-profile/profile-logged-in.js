@@ -29,7 +29,7 @@ function LoggedInStaticProfile(
 
 
             <div id='center_section' className=" col-xl-8 col-lg-9 col-md-9 col-sm-9">
-                 <h3 className={"text-info"}>Hey {user.name}!</h3>
+                 <h3 className={"text-info"}>Hey {user.firstName}!</h3>
                 <div className={"row pt-5 mb-5"}>
                     <DisplayUser user={user}/>
                 </div>
@@ -41,18 +41,7 @@ function LoggedInStaticProfile(
                 {user.admin && <button type={"button"} onClick={routeToAdmin} className={"btn col-3 btn-outline-success"}>Admin Mode</button>}
                 </div>
                 <hr/>
-                <div className={"pt-5"}>
-                    <div className={"pb-5"}>
-                        <h4 className={"text-start pb-2 "}>Your Saved Places</h4>
-                        <SavedItems lop={savedPlaces}/>
 
-                    </div>
-                    <hr/>
-                    <div>
-                        <h4 className={"text-start pt-5"}>Your Reviews</h4>
-                        <UserReviews reviewAndPlace={reviewAndPlaces}/>
-                    </div>
-                </div>
 
             </div>
         </div>

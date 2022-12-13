@@ -4,7 +4,8 @@
 import omdbReducer from "./omdb/omdb/omdb-reducer"
 import OmdbSearch from "./omdb/omdb/omdb-search";
 // import {likesReducer} from "./omdb/likes/likes-reducer";
-import {likesReducer} from "./likes/likes-reducer"
+
+import likesReducer from "./likes/likes-reducer"
 import 'bootstrap/dist/css/bootstrap.min.css';
 import 'bootstrap-icons/font/bootstrap-icons.css';
 // import Navigation from "./omdb/navigation";
@@ -62,40 +63,23 @@ const store = configureStore(
             // es: placesReducer,
                saves: savesReducer,
                users: usersReducer,
+            likes: likesReducer,
 
                         //omdb
                        // movies: moviesReducer,
                        omdb: omdbReducer,
-                       likes: likesReducer,
+
                        // reviews: reviewsReducer,
                        follows: followsReducer
                }}
 )
 
 function App() {
-    // const user = {
-    //     "id": 1,
-    //     "name": "John Doe",
-    //     "dob": "2001-11-11",
-    //     "username": "jdoe",
-    //     "password": "password",
-    //     "email": "jdoe@gmail.com",
-    //     "bio": "Hi! my name is john and I love x and y",
-    //     "admin": false
-    // }
 
-    const admin = {
-        "id": 2,
-        "name": "Jane Dob",
-        "dob": "1999-09-09",
-        "username": "dob-jane",
-        "password": "password",
-        "email": "jane1@gmail.com",
-        "bio": "Hi! my name is jane and I love x and y",
-        "admin": true
-    }
 
-    const userOut = null;
+
+
+
 
     return (
         <Provider store={store}>
@@ -106,18 +90,18 @@ function App() {
 
                 <div className={"App container orr"}>
                     <Routes>
-                        <Route path={'/*'} element={<Home user={userOut}/>}/>
+                        <Route path={'/*'} element={<Home user={null}/>}/>
                         {/*<Route path={"details/:placeId"} element={<OmdbDetails/>}/>*/}
                         {/*<Route path={"details/:placeId"} element={<PlacePage user={admin}/>}/>*/}
                         <Route path={"details/:placeId"} element={<DrinkDetails/>}/>
                         <Route path={"profile/:uid"} element={<PublicProfile/>}/>
-                        <Route path={"/saved"} element={<Saved user={userOut}/>}/>
+                        <Route path={"/saved"} element={<Saved user={null}/>}/>
                         <Route path={"/search"} element={<Search/>}/>
                         <Route path={"/users"} element={<Users/>}/>
                         {/*commented the line below*/}
                         {/*<Route path={"/profile"} element={<StaticProfile user={admin}/>}/>*/}
                         <Route path={"/profile/edit"} element={<EditProfile/>}/>
-                        <Route path={"/signup"} element={<Signup/>}/>
+                        <Route path={"/signup"} element={<Register/>}/>
                         <Route path={"/log"} element={<Login/>}/>
                         <Route path={"/admin"} element={<Admin/>}/>
                         <Route path={"/admin/users"} element={<AdminUsers/>}/>
