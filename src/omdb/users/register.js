@@ -1,13 +1,14 @@
-import {useState} from "react";
+import React, {useState} from "react";
 import {useDispatch, useSelector} from "react-redux";
 import {registerThunk} from "./users-thunk";
 import {current} from "@reduxjs/toolkit";
 import {Navigate} from "react-router";
+import NavigationSidebar from "../../navigation-sidebar";
 
 const Register = () => {
     const {currentUser} = useSelector((state) => state.users)
-    const [username, setUsername] = useState('alice')
-    const [password, setPassword] = useState('alice1234')
+    const [username, setUsername] = useState('')
+    const [password, setPassword] = useState('')
     const dispatch = useDispatch()
     const handleRegisterBtn = () => {
         dispatch(registerThunk({username, password}))
@@ -18,11 +19,19 @@ const Register = () => {
     }
 
     return(
-        <>
-            <h1>Register</h1>
+        <div className="mt-3 row">
+            <div id='left_side_bar' className="me-1 d-none d-sm-block col-xl-2 col-lg-2 col-md-2 col-sm-2 ">
+                <NavigationSidebar active={''}/>
+            </div>
+            <div id='center_section' className="text-left col-xl-8 col-lg-9 col-md-9 col-sm-9 justify-content-center">
+
+            <span className={"display-6 text-success"}>Hey! We're so excited to have you!</span>
+                <br/>
+                <h3 className={"pt-2 pb-5 text-info"}>Register Below</h3>
+
             <input
                 onChange={(e) => setUsername(e.target.value)}
-                className="form-control"
+                className="form-control arial-font"
                 placeholder="username"
                 value={username}/>
             <input
@@ -40,7 +49,8 @@ const Register = () => {
                 currentUser &&
                 <h1>Welcome new user: {currentUser.username}</h1>
             }
-        </>
+            </div>
+        </div>
     )
 }
 export default Register

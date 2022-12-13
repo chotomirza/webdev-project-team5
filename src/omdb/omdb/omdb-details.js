@@ -23,6 +23,7 @@ const OmdbDetails = () => {
             drinkID
         }))
     }
+
     return(
         <>
             {/*<h1>{details.Title}</h1>*/}

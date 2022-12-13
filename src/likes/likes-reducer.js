@@ -1,5 +1,5 @@
 import {createSlice} from "@reduxjs/toolkit";
-import {findLikeByUserThunk, userLikesDrinkThunk} from "./likes-thunks";
+import {findAllLikesThunk, findLikeByUserThunk, userLikesDrinkThunk} from "./likes-thunks";
 // import {findReviewsByAuthorThunk} from "../omdb/reviews/reviews-thunks";
 import {findLikesByUser} from "./likes-service";
 
@@ -8,7 +8,7 @@ const initialState = {
     loading: false
 }
 
-export const likesReducer = createSlice({
+ const likesReducer = createSlice({
     name: 'likes',
     initialState,
     extraReducers: {
@@ -18,7 +18,16 @@ export const likesReducer = createSlice({
         [findLikeByUserThunk.fulfilled]: (state, action) => {
             //changed this from state.reviews to state.likes
             state.likes = action.payload
+        },
+        [findAllLikesThunk.fulfilled]: (state, action) => {
+            state.likes = action.payload
+            state.loading = false
         }
 
     }
 })
+
+export default likesReducer
+
+
+

@@ -98,7 +98,7 @@ const PublicProfile = () => {
 
 
 
-                <h2>Following</h2>
+                <h2>Following: {following.length}</h2>
                 <div className="list-group">
                     {
                         following && following.map((follow) =>
@@ -108,7 +108,7 @@ const PublicProfile = () => {
                         )
                     }
                 </div>
-                <h2>Followers</h2>
+                <h2>Followers: {followers.length}</h2>
                 <div className="list-group">
                     {
                         followers && followers.map((follow) =>
