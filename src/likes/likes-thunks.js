@@ -19,6 +19,5 @@ export const findLikeByUserThunk = createAsyncThunk(
 )
 
 export const findLikesThunk = createAsyncThunk(
-    'findLikes',
-    return  findLikes()
+    'findLikes',async () => {return findLikes()}
 )

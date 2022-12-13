@@ -2,7 +2,7 @@ import {useParams} from "react-router";
 import {useDispatch, useSelector} from "react-redux";
 import React, {useEffect, useState} from "react";
 import {findDrinkByDrinkIdThunk} from "../omdb/omdb/omdb-thunks";
-import {userLikesDrinkThunk} from "../likes/likes-thunks";
+import {findLikesThunk, userLikesDrinkThunk} from "../likes/likes-thunks";
 import NavigationSidebar from "../navigation-sidebar";
 import {BiDrink} from "react-icons/bi"
 import {FaHome} from "react-icons/fa";
@@ -11,6 +11,12 @@ import {FaHome} from "react-icons/fa";
 const DrinkDetails = () => {
     const placeID = useParams().placeId
     const {details} = useSelector((state) => state.omdb)
+    const {likes} = useSelector((state) => state.likes)
+
+    useEffect(() => {
+        dispatch(findLikesThunk)
+    })
+
     const {currentUser} = useSelector((state) => state.users)
 
     const dispatch = useDispatch()

@@ -25,6 +25,7 @@ const PublicProfile = () => {
 
     const {followers, following} = useSelector((state) => state.follows)
 
+    console.log(followers)
     const isFollow = () => {
         if(displayFollow){
             console.log(followers)

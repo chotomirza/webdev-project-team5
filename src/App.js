@@ -4,8 +4,8 @@
 import omdbReducer from "./omdb/omdb/omdb-reducer"
 import OmdbSearch from "./omdb/omdb/omdb-search";
 // import {likesReducer} from "./omdb/likes/likes-reducer";
-
 import likesReducer from "./likes/likes-reducer"
+import collectReducer from "./likes/likes-reducer";
 import 'bootstrap/dist/css/bootstrap.min.css';
 import 'bootstrap-icons/font/bootstrap-icons.css';
 // import Navigation from "./omdb/navigation";
@@ -103,6 +103,8 @@ function App() {
                         <Route path={"/profile/edit"} element={<EditProfile/>}/>
                         <Route path={"/signup"} element={<Register/>}/>
                         <Route path={"/log"} element={<Login/>}/>
+                        <Route path={"/register"} element={<Register/>}/>
+
                         <Route path={"/admin"} element={<Admin/>}/>
                         <Route path={"/admin/users"} element={<AdminUsers/>}/>
                         <Route path={"/admin/reviews"} element={<AdminReviews/>}/>

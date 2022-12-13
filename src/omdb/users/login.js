@@ -11,7 +11,7 @@ const Login = () => {
     const dispatch = useDispatch()
     const navigate = useNavigate()
     const routeSignUp = () => {
-        navigate(`../signup`)
+        navigate(`../register`)
     }
     const handleLoginBtn = () => {
         try {

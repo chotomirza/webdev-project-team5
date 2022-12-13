@@ -17,7 +17,7 @@ export const findLikesByUser = async (uid) => {
 }
 
 export const findLikes = async () => {
-    const response = await axios.get(`http://localhost:4000/likes`)
+    const response = await axios.get(`http://localhost:4000/collection`)
     return response.data
 }
 
