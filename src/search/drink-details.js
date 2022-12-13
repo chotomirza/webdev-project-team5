@@ -5,7 +5,7 @@ import {findDrinkByDrinkIdThunk} from "../omdb/omdb/omdb-thunks";
 import {findLikesThunk, userLikesDrinkThunk} from "../likes/likes-thunks";
 import NavigationSidebar from "../navigation-sidebar";
 import {BiDrink} from "react-icons/bi"
-import {FaHome} from "react-icons/fa";
+// import {FaHome} from "react-icons/fa";
 // import {createReviewThunk} from "../omdb/reviews/reviews-thunks";
 
 const DrinkDetails = () => {
