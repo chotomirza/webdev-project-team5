@@ -1,18 +1,36 @@
 import NavigationSidebar from "../navigation-sidebar";
-import React from "react";
+import React, {useEffect} from "react";
 import SavedItemsAll from "../saved/saved-items-all";
 import AllSavedPlaces from "../saved/all-saved-places";
 import SomeSavedPlaces from "../saved/some-saved";
 import GenericDrinksFunc from "../saved/generic-drinks-func";
 import {TbCrown} from "react-icons/tb";
+import {useDispatch, useSelector} from "react-redux";
+import {findLikesByUser} from "../likes/likes-service";
+import {useNavigate} from "react-router";
+
+function PersonalizedHome() {
+    const {currentUser} = useSelector((state) => state.users)
 
 
 
-function Home({user}) {
-    const allSaved = SomeSavedPlaces(3);
-    // const allSavedGeneric = SomeSavedPlacesGeneric(3);
+    return(
+        <span className={"display-6"}>Welcome {currentUser.firstName}!</span>
+    )
+}
 
-    if(user === null){
+function Home() {
+
+    const {currentUser} = useSelector((state) => state.users)
+    const loggedIn = !(currentUser == null)
+
+    let navigate = useNavigate();
+    const routeLogin = () => {
+        navigate(`../login`)
+    }
+
+
+
         return(
 
 
@@ -36,8 +54,14 @@ function Home({user}) {
                     <p>Here you can search for recipes on your favorite cocktails!<br/>
                     <TbCrown/> Compete with other users to collect the most number of drinks! <TbCrown/></p>
                 <hr/>
+                    {loggedIn && <PersonalizedHome/>}
 
                     <h4 className={"display-6 text-info"}>Trending Drinks:</h4>
+                    <div className={'row'}>
+                        <GenericDrinksFunc/>
+                        <GenericDrinksFunc/>
+                        <GenericDrinksFunc/>
+                    </div>
                     <div className={'row'}>
                         <GenericDrinksFunc/>
                         <GenericDrinksFunc/>
@@ -48,11 +72,18 @@ function Home({user}) {
                     <br/>
 
 
+                    {loggedIn || <button
+                        onClick={routeLogin}
+                        type={"button"}
 
+                        className=" btn btn-transparent text-primary">
+                        Please click here to login in order to follow users!
+                    </button>}
                 </div>
+
             </div>
         );
-    }
+
 
 
 }
