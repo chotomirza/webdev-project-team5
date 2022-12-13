@@ -15,7 +15,7 @@ function PersonalizedHome() {
 
     if (currentUser) {
         return(
-            <span className={"display-6"}>Welcome {currentUser.username}!</span>
+            <span className={"display-6"}>Welcome Back {currentUser.username}!</span>
         )
     } else {
         return(
