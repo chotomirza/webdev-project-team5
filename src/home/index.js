@@ -13,10 +13,16 @@ function PersonalizedHome() {
     const {currentUser} = useSelector((state) => state.users)
 
 
+    if (currentUser) {
+        return(
+            <span className={"display-6"}>Welcome {currentUser.username}!</span>
+        )
+    } else {
+        return(
+                <span className={"display-6"}>Welcome!</span>
+            )
+    }
 
-    return(
-        <span className={"display-6"}>Welcome {currentUser.firstName}!</span>
-    )
 }
 
 function Home() {
@@ -54,7 +60,7 @@ function Home() {
                     <p>Here you can search for recipes on your favorite cocktails!<br/>
                     <TbCrown/> Compete with other users to collect the most number of drinks! <TbCrown/></p>
                 <hr/>
-                    {loggedIn && <PersonalizedHome/>}
+                    <PersonalizedHome/>
 
                     <h4 className={"display-6 text-info"}>Trending Drinks:</h4>
                     <div className={'row'}>
