@@ -25,7 +25,7 @@ const Profile = () => {
 
             }
 
-            <h2>Password: {currentUser.password}</h2>
+            {/*<h2>Password: {currentUser.password}</h2>*/}
 
 
 

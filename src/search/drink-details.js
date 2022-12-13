@@ -4,15 +4,29 @@ import React, {useEffect, useState} from "react";
 import {findDrinkByDrinkIdThunk} from "../omdb/omdb/omdb-thunks";
 import {userLikesDrinkThunk} from "../likes/likes-thunks";
 import NavigationSidebar from "../navigation-sidebar";
+import {BiDrink} from "react-icons/bi"
+import {FaHome} from "react-icons/fa";
+// import {createReviewThunk} from "../omdb/reviews/reviews-thunks";
 
 const DrinkDetails = () => {
     const placeID = useParams().placeId
     const {details} = useSelector((state) => state.omdb)
+    const {currentUser} = useSelector((state) => state.users)
 
     const dispatch = useDispatch()
     useEffect(() => {
         dispatch(findDrinkByDrinkIdThunk(placeID))
     },[])
+
+    const handleLikeBtn = () => {
+        currentUser &&
+        dispatch(userLikesDrinkThunk(
+            {
+                drinkId: details.drinks["0"].idDrink,
+                uid: currentUser._id
+            }
+            ))
+    }
 
 
     const one = {};
@@ -36,15 +50,15 @@ const DrinkDetails = () => {
                 <img src={details.drinks["0"].strDrinkThumb} width="40%" height="auto"/>
 
                 <div className="row pt-4 pb-4 ">
-                    <div className="col">
-                        <button type="button" className="btn btn-warning">I tried making this</button>
-                    </div>
+                    {/*<div className="col">*/}
+                    {/*    <button type="button" className="btn btn-success">I tried making this (remove this)</button>*/}
+                    {/*</div>*/}
 
-                    {/* todo: The Thunk does not properly work*/}
+
                     <div className="col">
-                        <button type="button" className="btn btn-success" onClick={()=>{
-                            dispatch(userLikesDrinkThunk) //dispatch(userLikesDrinkThunk())
-                        }}>Liked it</button>
+                        <button type="button" className="btn btn-warning" onClick={handleLikeBtn}>{
+                             //dispatch(userLikesDrinkThunk())
+                        }<BiDrink/>       C O L L E C T       <BiDrink/></button>
                     </div>
 
                     {/*<div className="col">*/}
@@ -70,8 +84,9 @@ const DrinkDetails = () => {
 
 
             <div className="row">
-                <div>This drink was first made by: @theUserWhoClickedThatButtonFirst</div>
-                <div>This drink has been liked by: [list of users]</div>
+                <div>if claimed: This drink has been collected: @theUserWhoClickedThatButtonFirst</div>
+                <div>else: This drink is still up for grabs</div>
+                {/*<div>This drink has been liked by: [list of users]</div>*/}
                 {/*<div>This drink has been disliked by: [list of users]</div>*/}
             </div>
 
