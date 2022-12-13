@@ -18,6 +18,9 @@ export const likesReducer = createSlice({
         [findLikeByUserThunk.fulfilled]: (state, action) => {
             //changed this from state.reviews to state.likes
             state.likes = action.payload
+        },
+        [findLikesThunk.fulfilled]: (state, action) => {
+            //state.likes = action.payload
         }
 
     }

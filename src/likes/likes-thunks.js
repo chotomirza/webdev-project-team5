@@ -17,3 +17,9 @@ export const findLikeByUserThunk = createAsyncThunk(
     async (uid) =>{
         return  findLikesByUser(uid)}
 )
+
+export const findLikesThunk = createAsyncThunk(
+    'findLikes',
+    async (uid) =>{
+        return  findLikes()}
+)
