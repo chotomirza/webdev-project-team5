@@ -47,9 +47,9 @@ const DrinkDetails = () => {
                         }}>Liked it</button>
                     </div>
 
-                    <div className="col">
-                        <button type="button" className="btn btn-danger">Did not like it</button>
-                    </div>
+                    {/*<div className="col">*/}
+                    {/*    <button type="button" className="btn btn-danger">Did not like it</button>*/}
+                    {/*</div>*/}
                 </div>
 
             </div>
@@ -72,7 +72,7 @@ const DrinkDetails = () => {
             <div className="row">
                 <div>This drink was first made by: @theUserWhoClickedThatButtonFirst</div>
                 <div>This drink has been liked by: [list of users]</div>
-                <div>This drink has been disliked by: [list of users]</div>
+                {/*<div>This drink has been disliked by: [list of users]</div>*/}
             </div>
 
 

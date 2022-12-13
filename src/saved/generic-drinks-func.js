@@ -33,11 +33,11 @@ function GenericDrinksFunc() {
             {/* Title of Drink */}
             {data.map((cocktail)=> (
                 <div key={cocktail.idDrink}>
-                    <h2 className={"text-success card-title"}>{cocktail.strDrink}</h2>
+                    <h4 className={"text-success card-title"}>{cocktail.strDrink}</h4>
 
                     <a className="button" href={"/details/" + cocktail.idDrink}>
                         <button>
-                            see more
+                            learn more
                         </button>
                     </a>
                 </div>

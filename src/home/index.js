@@ -20,15 +20,16 @@ function Home({user}) {
 
 
                 <div id='center_section' className="text-left col-xl-8 col-lg-9 col-md-9 col-sm-9">
-                    <h1 className={"display-1 text-success"}>Welcome!</h1>
-                    <hr/>
-                    <p>Here you can search for recipes on your favorite cocktails!<br/>
-                    Be sure to leave a review on your favorite (and least favorite) recipes!</p>
-                <hr/>
-                    <h4 className={"display-6 text-info"}>Here's What People Are Saving:</h4>
-                    <SavedItemsAll lop={allSaved}/>
+                    {/*<h1 className={"display-1 text-success"}>Welcome!</h1>*/}
+                    {/*<hr/>*/}
+
+                    <h6 className={"display-5 text-success"}>Ready to make some <i>Pour Decisions</i>?</h6>
 
                     <hr/>
+                    <p>Here you can search for recipes on your favorite cocktails!<br/>
+                    Be sure to like your favorite recipes
+                        and compete to be the first to try the most number of drink!</p>
+                <hr/>
                     <h4 className={"display-6 text-info"}>Trending Drinks:</h4>
                     <div className={'row'}>
                         <GenericDrinksFunc/>
@@ -36,6 +37,11 @@ function Home({user}) {
                         <GenericDrinksFunc/>
                     </div>
 
+
+                    <hr/>
+
+                    <h4 className={"display-6 text-info"}>Here's What People Are Saving:</h4>
+                    <SavedItemsAll lop={allSaved}/>
 
 
                 </div>
