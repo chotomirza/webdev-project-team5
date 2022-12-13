@@ -1,6 +1,6 @@
 import {createSlice} from "@reduxjs/toolkit";
 import {findLikeByUserThunk, userLikesDrinkThunk} from "./likes-thunks";
-import {findReviewsByAuthorThunk} from "../omdb/reviews/reviews-thunks";
+// import {findReviewsByAuthorThunk} from "../omdb/reviews/reviews-thunks";
 import {findLikesByUser} from "./likes-service";
 
 const initialState = {
@@ -16,7 +16,8 @@ export const likesReducer = createSlice({
             state.likes.push(action.payload)
         },
         [findLikeByUserThunk.fulfilled]: (state, action) => {
-            state.reviews = action.payload
+            //changed this from state.reviews to state.likes
+            state.likes = action.payload
         }
 
     }

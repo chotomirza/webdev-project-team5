@@ -31,7 +31,9 @@ const Profile = () => {
             }
 
 
+
             <h2>Password: {currentUser.password}</h2>
+
 
 
 
