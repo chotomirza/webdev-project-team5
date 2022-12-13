@@ -7,6 +7,8 @@ import LoggedInStaticProfile from "../../profile/static-profile/profile-logged-i
 import DisplayUser from "../../profile/display-user";
 import {findFollowersThunk, findFollowingThunk} from "../follows/follows-thunks";
 import {Link} from "react-router-dom";
+import {findLikesByUser} from "../../likes/likes-service";
+import {findLikeByUserThunk} from "../../likes/likes-thunks";
 
 const Profile = () => {
 
@@ -34,8 +36,11 @@ const Profile = () => {
         dispatch(findFollowersThunk(uid))
         dispatch(findFollowingThunk(uid))
 
+    }, [uid])
 
-
+    const {likes} = useSelector((state) => state.likes)
+    useEffect(() => {
+        dispatch(findLikeByUserThunk(uid))
     }, [uid])
 
     return(
@@ -86,6 +91,8 @@ const Profile = () => {
                         )
                     }
                 </div>
+
+
                 <h2>Followers : {followers.length}</h2>
                 <div className="list-group">
                     {
@@ -96,6 +103,24 @@ const Profile = () => {
                         )
                     }
                 </div>
+
+
+                    <h2>Collection : {likes.length}</h2>
+                    <div className="list-group">
+                        {
+                            likes && likes.map((drinkcollection) =>
+                                <Link to={`/details/${drinkcollection.drink}`} className="list-group-item">
+                                    {drinkcollection.drink}
+                                  </Link>
+                            )
+                        }
+                    </div>
+
+
+
+
+
+
                 </div>
 
             </div>
