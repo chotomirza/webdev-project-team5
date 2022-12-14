@@ -11,7 +11,7 @@ function ShowUser({user}){
     }
     return(
         <li className={"list-group-item text-primary"} onClick={routeChange}>
-            <h3 className={"text-start text-info"}>{user.firstName} {user.lastName}</h3>
+            <h3 className={"text-start text-success"}>{user.firstName} {user.lastName}</h3>
             <u>   @{user.username}  </u>
         </li>
     )

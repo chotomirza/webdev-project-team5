@@ -32,7 +32,7 @@ const Search = () => {
                    <ul className="list-group">
                                    <li className="list-group-item">
                                        <button
-                                           className="btn btn-primary float-end"
+                                           className="btn btn-success float-end"
                                            onClick={() => {
                                                dispatch(findDrinkBySearchTermThunk(searchTerm))
                                            }}>Search
@@ -48,7 +48,7 @@ const Search = () => {
                                        movies && movies.map((drink) =>
                                            <li key={drink.idDrink} className="list-group-item">
                                                <img src={drink.strDrinkThumb} height={50} className="float-start" alt={drink.strDrink}/>
-                                               <Link to={`/details/${drink.idDrink}`} className="float-start ms-4">
+                                               <Link to={`/details/${drink.idDrink}`} className="text-success float-start ms-4">
                                                    {drink.strDrink}
                                                </Link>
 

@@ -29,7 +29,7 @@ function GenericDrinksFunc() {
 
     return (
 
-        <div className={"card pt-2 col-sm-5 col-md-3 bg-transparent mx-2 my-2"}>
+        <div className={"card pt-2 col-sm-5 col-md-5 col-lg-3 bg-transparent mx-2 my-2"}>
             {/* Title of Drink */}
             {data.map((cocktail)=> (
                 <div key={cocktail.idDrink}>

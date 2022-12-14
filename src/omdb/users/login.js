@@ -32,7 +32,7 @@ const Login = () => {
             </div>
             <div id='center_section' className="text-left col-xl-8 col-lg-9 col-md-9 col-sm-9">
 
-            <h1>Login</h1>
+            <span className={"display-3 text-info"}>Login</span>
             <input
                 onChange={(e) => setUsername(e.target.value)}
                 className="form-control arial-font"
@@ -41,8 +41,9 @@ const Login = () => {
             <input
                 onChange={(e) => setPassword(e.target.value)}
                 className="form-control" placeholder="password" type="password" value={password}/>
-            <button
-                className="btn btn-primary w-100"
+            <br/>
+                <button
+                className=" btn btn-success w-100"
                 onClick={handleLoginBtn}>Login</button>
 
 

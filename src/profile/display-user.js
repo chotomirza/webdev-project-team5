@@ -6,7 +6,7 @@ function DisplayUser ({user}) {
         <>
         <div className={"justify-content-center ps-4 col-4"}>
             <FaUser size={100} color={"navy"}/>
-            <span className={"text-lg-center"}> @{user.username}</span>
+            <span className={"display-6 text-lg-center"}> @{user.username}</span>
         </div>
     <div className={"ps-5 col-8"}>
         <div className={"row"}>

@@ -44,7 +44,7 @@ function Home() {
         return(
 
 
-            <div className="mt-3 row">
+            <div className="mt-3 row ">
 
 
 
@@ -54,7 +54,7 @@ function Home() {
                 </div>
 
 
-                <div id='center_section' className="text-left col-xl-8 col-lg-9 col-md-9 col-sm-9">
+                <div id='center_section' className="text-start col-xl-8 col-lg-9 col-md-9 col-sm-9">
                     {/*<h1 className={"display-1 text-success"}>Welcome!</h1>*/}
                     {/*<hr/>*/}
 

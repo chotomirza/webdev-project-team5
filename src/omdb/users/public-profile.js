@@ -8,6 +8,7 @@ import {BsTrash} from "react-icons/bs";
 import {Link} from "react-router-dom";
 import {findFollowersThunk, findFollowingThunk, followUserThunk} from "../follows/follows-thunks";
 import NavigationSidebar from "../../navigation-sidebar";
+import {findLikeByUserThunk} from "../../likes/likes-thunks";
 
 const PublicProfile = () => {
     const {uid} = useParams()
@@ -23,13 +24,18 @@ const PublicProfile = () => {
         navigate(`../login`)
     }
 
+    const {likes} = useSelector((state) => state.likes)
+    useEffect(() => {
+        dispatch(findLikeByUserThunk(uid))
+    }, [uid])
+
 
 
     const {publicProfile} = useSelector((state) => state.users)
 
     const {followers, following} = useSelector((state) => state.follows)
 
-    console.log(followers)
+
     const isFollow = () => {
         if(displayFollow){
             console.log(followers)
@@ -55,6 +61,8 @@ const PublicProfile = () => {
         newFollow.follower = currentUser._id
     }
 
+    console.log(publicProfile)
+    console.log("PUBLIC PROF")
 
 
     const handleFollowBtn = () => {
@@ -83,7 +91,7 @@ const PublicProfile = () => {
                 <div className={"display-3 text-info"}>@{publicProfile && publicProfile.username}</div>
 
                 <div classname={"text-center row mt-4"}>
-                    {displayFollow && publicProfile.role !== "admin" && currentUser.role === "admin" &&
+                    {displayFollow && publicProfile !== null && publicProfile.role !== "admin" && currentUser.role === "admin" &&
                         <button
                             onClick={() => {
                                 dispatch(updateUserThunk(publicProfile))
@@ -94,7 +102,7 @@ const PublicProfile = () => {
                         </button>
                     }
 
-                    {displayFollow && publicProfile.role === "admin" && currentUser.role === "admin" &&
+                    {displayFollow && publicProfile !== null && publicProfile.role === "admin" && currentUser.role === "admin" &&
                         <div
 
 
@@ -126,7 +134,7 @@ const PublicProfile = () => {
 
 
 
-                <h2>Following: {following.length}</h2>
+                <h2 className={"text-success"}>Following: {following.length}</h2>
                 <div className="list-group">
                     {
                         following && following.map((follow) =>
@@ -136,7 +144,7 @@ const PublicProfile = () => {
                         )
                     }
                 </div>
-                <h2>Followers: {followers.length}</h2>
+                <h2 className={"text-success"}>Followers: {followers.length}</h2>
                 <div className="list-group">
                     {
                         followers && followers.map((follow) =>
@@ -146,6 +154,16 @@ const PublicProfile = () => {
                         )
                     }
                 </div>
+                    <h2 className={"text-success"}>Collection : {likes.length}</h2>
+                    <div className="list-group">
+                        {
+                            likes && likes.map((drinkcollection) =>
+                                <Link to={`/details/${drinkcollection.drink}`} className="list-group-item">
+                                    {drinkcollection.drink}
+                                </Link>
+                            )
+                        }
+                    </div>
                 </div>
 
 
