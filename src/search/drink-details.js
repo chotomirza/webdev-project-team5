@@ -115,9 +115,9 @@ const DrinkDetails = () => {
                             {loggedIn && (isDrinkCollected || <button type="button" className="btn btn-warning" onClick={handleLikeBtn}>{
                                 //dispatch(userLikesDrinkThunk())
                             }<BiDrink/>       C O L L E C T       <BiDrink/></button>)}
-                            {loggedIn && isDrinkCollected && <div  className="text-light bg-danger">{
+                            {userCollected && loggedIn && isDrinkCollected && <div  className="text-light bg-danger">
                                 //dispatch(userLikesDrinkThunk())
-                            }    THIS DRINK HAS ALREADY BEEN COLLECTED BY
+                                THIS DRINK HAS ALREADY BEEN COLLECTED BY
                                 <span className={"text-decoration-underline"} onClick={routeChange}>  @{userCollected.username}</span>   <BiSad/></div>
                             }
 

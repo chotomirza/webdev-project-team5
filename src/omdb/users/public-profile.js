@@ -167,10 +167,7 @@ const PublicProfile = () => {
                             <h2 className={"text-success"}>Collection : {likes.length}</h2>
                             <div className="list-group">
                                 {
-                                    likes && likes.map((drinkcollection) =>
-                                        <Link to={`/details/${drinkcollection.drink}`} className="list-group-item">
-                                            {drinkcollection.drink}
-                                        </Link>
+                                    likes && secondCollectionHelperPub(likes).map((c) => c)
 
                                     // likes && likes.map((drinkcollection) =>
                                     // // <h1>{drinkcollection.drink}</h1>
@@ -178,7 +175,7 @@ const PublicProfile = () => {
                                     // <GetDrinkInfoById myid={drinkcollection.drink}/>
                                     // </Link>
 
-                                    )
+
                                 }
                             </div>
                         </div>
@@ -196,4 +193,29 @@ const PublicProfile = () => {
     )
 }
 
+function collectionHelperPub(drinkcollection, i) {
+    const num = i + 1;
+    const numStore = {num: i+1}
+
+    return (
+        <Link to={`/details/${drinkcollection.drink}`} className="list-group-item">
+            <p>Drink  {numStore.num}</p>
+        </Link>
+    )
+
+}
+
+function secondCollectionHelperPub(likes){
+
+
+    const collection = []
+    for(let i = 0; i < likes.length; i++){
+
+        collection.push(collectionHelperPub(likes[i], i))
+
+    }
+
+    return(collection)
+
+}
 export default PublicProfile

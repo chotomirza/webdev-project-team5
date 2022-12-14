@@ -22,6 +22,8 @@ function PersonalizedHome() {
                 {/*<span className={"display-6"}>Welcome Back {currentUser.firstName}!*/}
 
             </span>
+
+
             </div>
         )
     } else {

@@ -111,12 +111,8 @@ const Profile = () => {
                     <div className="col">
                         <h2>Collection : {likes.length}</h2>
                         <div className="list-group">
-                       {
-                           likes && likes.map((drinkcollection) =>
-                                    <Link to={`/details/${drinkcollection.drink}`} className="list-group-item">
-                                        <p>{drinkcollection.drink}</p>
-                                    </Link>
-                           )
+                       {currentUser &&
+                           likes && secondCollectionHelper(likes).map((c) => c)
                             }
                         </div>
                     </div>
@@ -144,5 +140,31 @@ const Profile = () => {
             </div>
         </div>
     )
+}
+
+function collectionHelper(drinkcollection, i) {
+    const num = i + 1;
+    const numStore = {num: i+1}
+
+    return (
+         <Link to={`/details/${drinkcollection.drink}`} className="list-group-item">
+            <p>Drink  {numStore.num}</p>
+        </Link>
+    )
+
+}
+
+function secondCollectionHelper(likes){
+
+
+    const collection = []
+    for(let i = 0; i < likes.length; i++){
+
+            collection.push(collectionHelper(likes[i], i))
+
+    }
+
+    return(collection)
+
 }
 export default Profile
