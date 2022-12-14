@@ -1,9 +1,10 @@
 import {useNavigate, useParams} from "react-router";
 import React, {useEffect} from "react";
 import {useDispatch, useSelector} from "react-redux";
-import {findUserByIdThunk} from "./users-thunk";
+import {deleteUserThunk, findUserByIdThunk} from "./users-thunk";
 // import {findReviewsByAuthor} from "../reviews/reviews-service";
 // import {findReviewsByAuthorThunk} from "../reviews/reviews-thunks";
+import {BsTrash} from "react-icons/bs";
 import {Link} from "react-router-dom";
 import {findFollowersThunk, findFollowingThunk, followUserThunk} from "../follows/follows-thunks";
 import NavigationSidebar from "../../navigation-sidebar";
@@ -15,10 +16,13 @@ const PublicProfile = () => {
 
 
 
+
+
     let navigate = useNavigate();
     const routeLogin = () => {
         navigate(`../login`)
     }
+
 
 
     const {publicProfile} = useSelector((state) => state.users)
@@ -39,6 +43,10 @@ const PublicProfile = () => {
 
 
     const dispatch = useDispatch()
+
+    const deleteUserHandler = (id) => {
+        dispatch(deleteUserThunk(id));
+    }
     const newFollow = {
         followed:uid,
         follower:""
@@ -63,7 +71,7 @@ const PublicProfile = () => {
 
     }, [uid])
 
-    console.log(publicProfile)
+    console.log(currentUser)
     return(
         <div className="mt-3 row">
             <div id='left_side_bar' className="me-1 d-none d-sm-block col-xl-2 col-lg-2 col-md-2 col-sm-2 ">
@@ -120,6 +128,8 @@ const PublicProfile = () => {
                     }
                 </div>
                 </div>
+
+
 
             </div>
         </div>
