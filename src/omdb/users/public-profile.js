@@ -1,7 +1,7 @@
 import {useNavigate, useParams} from "react-router";
 import React, {useEffect} from "react";
 import {useDispatch, useSelector} from "react-redux";
-import {deleteUserThunk, findUserByIdThunk} from "./users-thunk";
+import {deleteUserThunk, findUserByIdThunk, updateUserThunk} from "./users-thunk";
 // import {findReviewsByAuthor} from "../reviews/reviews-service";
 // import {findReviewsByAuthorThunk} from "../reviews/reviews-thunks";
 import {BsTrash} from "react-icons/bs";
@@ -82,7 +82,26 @@ const PublicProfile = () => {
             <div id='center_section' className="text-left col-xl-8 col-lg-9 col-md-9 col-sm-9 justify-content-center">
                 <div className={"display-3 text-info"}>@{publicProfile && publicProfile.username}</div>
 
-                <div classname={"text-center row "}>
+                <div classname={"text-center row mt-4"}>
+                    {displayFollow && publicProfile.role !== "admin" && currentUser.role === "admin" &&
+                        <button
+                            onClick={() => {
+                                dispatch(updateUserThunk(publicProfile))
+                            }}
+                            type={"button"}
+                            className="btn btn-danger me-5">
+                            Make Admin
+                        </button>
+                    }
+
+                    {displayFollow && publicProfile.role === "admin" && currentUser.role === "admin" &&
+                        <div
+
+
+                            className="text-danger">
+                           User is an admin
+                        </div>
+                    }
                 {isNotFollowing && displayFollow   && <button
                     onClick={handleFollowBtn}
                     type={"button"}
