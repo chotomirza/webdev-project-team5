@@ -111,15 +111,32 @@ const Profile = () => {
                     <div className="col">
                         <h2>Collection : {likes.length}</h2>
                         <div className="list-group">
-                            {
-                                likes && likes.map((drinkcollection) =>
+                       {
+                           likes && likes.map((drinkcollection) =>
                                     <Link to={`/details/${drinkcollection.drink}`} className="list-group-item">
-                                        <GetDrinkInfoById myid={drinkcollection.drink}/>
+                                        <p>{drinkcollection.drink}</p>
                                     </Link>
-                                )
+                           )
                             }
                         </div>
                     </div>
+
+                    {/*<div className="col">*/}
+                    {/*    <h2>Experimental: {likes.length}</h2>*/}
+                    {/*    <div className="list-group">*/}
+                    {/*        {*/}
+                    {/*                <div className="list-group-item">*/}
+                    {/*                    <p>{likes[0].drink}</p>*/}
+                    {/*                    <GetDrinkInfoById myid={likes[0].drink}/>*/}
+                    {/*                    <hr/>*/}
+                    {/*                    <p>{likes[1].drink}</p>*/}
+                    {/*                    <GetDrinkInfoById myid={likes[1].drink}/>*/}
+                    {/*                </div>*/}
+
+                    {/*        }*/}
+                    {/*    </div>*/}
+                    {/*</div>*/}
+
                 </div>
 
 
