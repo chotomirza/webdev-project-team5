@@ -6,15 +6,21 @@ const PROJECT_DB = 'http://localhost:4000/api/drinks'
 
 export const findDrinkBySearchTerm = async (term) => {
     const response = await axios.get(`${SEARCH_URL}${term}`)
+
     console.log("term " + term);
-    console.log("response ");
+    console.log(response.data.drinks["0"]);
 
     return Object.values(response.data.drinks);
 }
 
 export const findDrinkByDrinkId = async (imdbID) => {
     const response = await axios.get(`${DETAILS_URL}${imdbID}`)
-    return response.data
+
+    console.log("inside service")
+    console.log(imdbID)
+    console.log(response.data.drinks["0"])
+    // return response.data
+    return Object.values(response.data.drinks)["0"];
 }
 
 export const createDrink = async (drink) => {

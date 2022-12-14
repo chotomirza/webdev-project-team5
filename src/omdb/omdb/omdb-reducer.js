@@ -16,7 +16,7 @@ const omdbReducer = createSlice({
             state.movies = action.payload
         },
         [findDrinkByDrinkIdThunk.fulfilled]: (state, action) => {
-            state.details = action.payload
+            state.movies = action.payload
         }
     }
 })
