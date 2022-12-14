@@ -39,27 +39,27 @@ const Register = () => {
                 value={username}/>
             <input
                 onChange={(e) => setPassword(e.target.value)}
-                className="form-control"
+                className="form-control mt-1"
                 placeholder="password"
                 type="password"
                 value={password}/>
             <input
                 onChange={(e) => setFirstName(e.target.value)}
-                className="form-control"
+                className="form-control mt-1"
                 placeholder="first name"
                 value={firstName}/>
             <input
                 onChange={(e) => setLastName(e.target.value)}
-                className="form-control"
+                className="form-control mt-1"
                 placeholder="last name"
                 value={lastName}/>
             <input
                 onChange={(e) => setEmail(e.target.value)}
-                className="form-control"
+                className="form-control mt-1"
                 placeholder="email"
                 value={email}/>
             <button
-                className="btn btn-primary w-100"
+                className="btn btn-primary w-100  mt-3"
                 onClick={handleRegisterBtn}>
                 Register
             </button>
