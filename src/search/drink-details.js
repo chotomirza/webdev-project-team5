@@ -56,9 +56,6 @@ const DrinkDetails = () => {
 
 
 
-
-
-
     const dispatch = useDispatch()
     useEffect(() => {
         dispatch(findDrinkByDrinkIdThunk(placeID))
@@ -154,8 +151,6 @@ const DrinkDetails = () => {
                         <li className="list-group-item">3: {details.strIngredient3}</li>
                     </ul>
                 </div>
-
-
 
 
                 {loggedIn && currentUser.role == "admin" && isDrinkCollected &&
