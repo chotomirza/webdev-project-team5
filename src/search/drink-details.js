@@ -126,7 +126,7 @@ const DrinkDetails = () => {
                                 type={"button"}
 
                                 className=" btn btn-transparent text-primary">
-                                Please click here to login in order to follow users!
+                                Please click here to login in order to collect drinks!
                             </button>}
                         </div>
 
