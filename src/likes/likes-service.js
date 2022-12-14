@@ -9,6 +9,13 @@ export const userLikesDrink = async (uid, did) => {
     return response.data
 }
 
+export const deleteLike = async(pid) => {
+    const url = `http://localhost:4000/collection/${pid}`
+    console.log(url)
+    const response = await axios.delete(url)
+    return response.data
+}
+
 export const findLikesByUser = async (uid) => {
     // const response = await axios.get(`${USERS_URL}/${uid}/likes`
     const response = await axios.get(`${USERS_URL}/${uid}/collection`

@@ -1,5 +1,5 @@
 import {createSlice} from "@reduxjs/toolkit";
-import {findLikesThunk, findLikeByUserThunk, userLikesDrinkThunk} from "./likes-thunks";
+import {findLikesThunk, findLikeByUserThunk, userLikesDrinkThunk, deleteLikeThunk} from "./likes-thunks";
 // import {findReviewsByAuthorThunk} from "../omdb/reviews/reviews-thunks";
 import {findLikesByUser} from "./likes-service";
 
@@ -22,6 +22,10 @@ const initialState = {
         [findLikesThunk.fulfilled]: (state, action) => {
             state.likes = action.payload
             state.loading = false
+        },
+        [deleteLikeThunk.fulfilled]: (state, {payload}) => {
+            state.loading = false;
+            state.likes = state.likes.filter(l => l.drink !== payload)
         }
 
     }
