@@ -61,11 +61,13 @@ const DrinkDetails = () => {
         dispatch(findDrinkByDrinkIdThunk(placeID))
     },[])
 
+
+
     const handleLikeBtn = () => {
         currentUser &&
         dispatch(userLikesDrinkThunk(
             {
-                drinkId: details.drinks["0"].idDrink,
+                drinkId: details.idDrink,
                 uid: currentUser._id
             }
         ))

@@ -57,11 +57,11 @@ function Home() {
                 </div>
 
 
-                <div id='center_section' className="text-start col-xl-8 col-lg-9 col-md-9 col-sm-9">
+                <div id='center_section' className=" col-xl-8 col-lg-9 col-md-9 col-sm-9">
                     {/*<h1 className={"display-1 text-success"}>Welcome!</h1>*/}
                     {/*<hr/>*/}
 
-                    <h6 className={"display-5 text-success"}>Ready to make some <b><i>Pour Decisions</i></b>?</h6>
+                    <h6 className={"display-5 text-success"}>Ready to make some <br/><b><i>Pour Decisions</i></b>?</h6>
 
                     <hr/>
                     <p>Here you can search for recipes on your favorite cocktails!<br/>

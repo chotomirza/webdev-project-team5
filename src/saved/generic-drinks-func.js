@@ -35,8 +35,8 @@ function GenericDrinksFunc() {
                 <div key={cocktail.idDrink}>
                     <h4 className={"text-success card-title"}>{cocktail.strDrink}</h4>
 
-                    <a className="button" href={"/details/" + cocktail.idDrink}>
-                        <button>
+                    <a className="button" className={""}href={"/details/" + cocktail.idDrink}>
+                        <button className={"btn btn-success"}>
                             learn more
                         </button>
                     </a>
