@@ -44,4 +44,8 @@ export const deleteUser = async(uid) => {
     const response = await axios.delete(`${USER_API_URL}/$uid`)
     return response.data
 }
-const updateUser = () => {}
+export const updateUser = async(user) => {
+    const url = `${USER_API_URL}/${user.username}`
+    const response = await axios.put(url)
+    return user
+}
