@@ -9,6 +9,7 @@ import {findFollowersThunk, findFollowingThunk} from "../follows/follows-thunks"
 import {Link} from "react-router-dom";
 import {findLikesByUser} from "../../likes/likes-service";
 import {findLikeByUserThunk} from "../../likes/likes-thunks";
+import GetDrinkInfoById from "../../saved/drink-info-by-id-func";
 
 const Profile = () => {
 
@@ -81,50 +82,46 @@ const Profile = () => {
                 Logout
             </button>
 
-                <div className={"pt-5"}>
-
-
-                <h2>Following : {following.length}</h2>
-                <div className="list-group">
-                    {
-                        following && following.map((follow) =>
-                            <Link to={`/profile/${follow.followed._id}`} className="list-group-item">
-                                {follow.followed.username}
-                            </Link>
-                        )
-                    }
-                </div>
-
-
-                <h2>Followers : {followers.length}</h2>
-                <div className="list-group">
-                    {
-                        followers && followers.map((follow) =>
-                            <Link to={`/profile/${follow.follower._id}`} className="list-group-item">
-                                {follow.follower.username}
-                            </Link>
-                        )
-                    }
-                </div>
-
-
-                    <h2>Collection : {likes.length}</h2>
-                    <div className="list-group">
-                        {
-                            likes && likes.map((drinkcollection) =>
-                                <Link to={`/details/${drinkcollection.drink}`} className="list-group-item">
-                                    {drinkcollection.drink}
-                                  </Link>
-                            )
-                        }
+                <div className="row pt-5">
+                    <div className="col">
+                        <h2>Following : {following.length}</h2>
+                        <div className="list-group">
+                            {
+                                following && following.map((follow) =>
+                                    <Link to={`/profile/${follow.followed._id}`} className="list-group-item">
+                                        {follow.followed.username}
+                                    </Link>
+                                )
+                            }
+                        </div>
                     </div>
-
-
-
-
-
-
+                    <div className="col">
+                        <h2>Followers : {followers.length}</h2>
+                        <div className="list-group">
+                            {
+                                followers && followers.map((follow) =>
+                                    <Link to={`/profile/${follow.follower._id}`} className="list-group-item">
+                                        {follow.follower.username}
+                                    </Link>
+                                )
+                            }
+                        </div>
+                    </div>
+                    <div className="col">
+                        <h2>Collection : {likes.length}</h2>
+                        <div className="list-group">
+                            {
+                                likes && likes.map((drinkcollection) =>
+                                    <Link to={`/details/${drinkcollection.drink}`} className="list-group-item">
+                                        <GetDrinkInfoById myid={drinkcollection.drink}/>
+                                    </Link>
+                                )
+                            }
+                        </div>
+                    </div>
                 </div>
+
+
 
             </div>
         </div>
