@@ -8,6 +8,7 @@ import {TbCrown} from "react-icons/tb";
 import {useDispatch, useSelector} from "react-redux";
 import {findLikesByUser} from "../likes/likes-service";
 import {useNavigate} from "react-router";
+import {findLikeByUserThunk} from "../likes/likes-thunks";
 
 function PersonalizedHome() {
     const {currentUser} = useSelector((state) => state.users)
@@ -15,7 +16,10 @@ function PersonalizedHome() {
 
     if (currentUser) {
         return(
-            <span className={"display-6"}>Welcome Back {currentUser.username}!</span>
+        <div>
+            <span className={"display-6"}>Welcome Back {currentUser.firstName}!
+            </span>
+            </div>
         )
     } else {
         return(
@@ -62,13 +66,13 @@ function Home() {
                 <hr/>
                     <PersonalizedHome/>
 
-                    <h4 className={"display-6 text-info"}>Trending Drinks:</h4>
-                    <div className={'row'}>
-                        <GenericDrinksFunc/>
+                    <h4 className={"display-6 text-info"}>Check Out These Drinks:</h4>
+                    <div className={'row justify-content-center'}>
+                        <GenericDrinksFunc />
                         <GenericDrinksFunc/>
                         <GenericDrinksFunc/>
                     </div>
-                    <div className={'row'}>
+                    <div className={'row justify-content-center'}>
                         <GenericDrinksFunc/>
                         <GenericDrinksFunc/>
                         <GenericDrinksFunc/>
