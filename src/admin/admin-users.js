@@ -27,13 +27,11 @@ function AdminUsers() {
                 <p className={"arial-font"}>
                     As an admin, you may declare any other user an admin</p>
                 <hr/>
-                <DisplayUsers/>
 
 
 
             </div>
 
-            <button type={"button"} onClick={routeAdmin} className={"mt-5 btn btn-link text-success"}>Back</button>
 
             <br/>
         </div>

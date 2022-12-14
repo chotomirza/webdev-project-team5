@@ -1,9 +1,10 @@
 import {useNavigate, useParams} from "react-router";
 import React, {useEffect} from "react";
 import {useDispatch, useSelector} from "react-redux";
-import {findUserByIdThunk} from "./users-thunk";
+import {deleteUserThunk, findUserByIdThunk, updateUserThunk} from "./users-thunk";
 // import {findReviewsByAuthor} from "../reviews/reviews-service";
 // import {findReviewsByAuthorThunk} from "../reviews/reviews-thunks";
+import {BsTrash} from "react-icons/bs";
 import {Link} from "react-router-dom";
 import {findFollowersThunk, findFollowingThunk, followUserThunk} from "../follows/follows-thunks";
 import NavigationSidebar from "../../navigation-sidebar";
@@ -15,10 +16,13 @@ const PublicProfile = () => {
 
 
 
+
+
     let navigate = useNavigate();
     const routeLogin = () => {
         navigate(`../login`)
     }
+
 
 
     const {publicProfile} = useSelector((state) => state.users)
@@ -39,6 +43,10 @@ const PublicProfile = () => {
 
 
     const dispatch = useDispatch()
+
+    const deleteUserHandler = (id) => {
+        dispatch(deleteUserThunk(id));
+    }
     const newFollow = {
         followed:uid,
         follower:""
@@ -63,7 +71,7 @@ const PublicProfile = () => {
 
     }, [uid])
 
-    console.log(publicProfile)
+    console.log(currentUser)
     return(
         <div className="mt-3 row">
             <div id='left_side_bar' className="me-1 d-none d-sm-block col-xl-2 col-lg-2 col-md-2 col-sm-2 ">
@@ -74,7 +82,26 @@ const PublicProfile = () => {
             <div id='center_section' className="text-left col-xl-8 col-lg-9 col-md-9 col-sm-9 justify-content-center">
                 <div className={"display-3 text-info"}>@{publicProfile && publicProfile.username}</div>
 
-                <div classname={"text-center row "}>
+                <div classname={"text-center row mt-4"}>
+                    {displayFollow && publicProfile.role !== "admin" && currentUser.role === "admin" &&
+                        <button
+                            onClick={() => {
+                                dispatch(updateUserThunk(publicProfile))
+                            }}
+                            type={"button"}
+                            className="btn btn-danger me-5">
+                            Make Admin
+                        </button>
+                    }
+
+                    {displayFollow && publicProfile.role === "admin" && currentUser.role === "admin" &&
+                        <div
+
+
+                            className="text-danger">
+                           User is an admin
+                        </div>
+                    }
                 {isNotFollowing && displayFollow   && <button
                     onClick={handleFollowBtn}
                     type={"button"}
@@ -120,6 +147,8 @@ const PublicProfile = () => {
                     }
                 </div>
                 </div>
+
+
 
             </div>
         </div>

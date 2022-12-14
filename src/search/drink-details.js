@@ -3,9 +3,10 @@ import {BiSad} from "react-icons/bi";
 import {useDispatch, useSelector} from "react-redux";
 import React, {useEffect, useState} from "react";
 import {findDrinkByDrinkIdThunk} from "../omdb/omdb/omdb-thunks";
-import {findLikesThunk, userLikesDrinkThunk} from "../likes/likes-thunks";
+import {deleteLikeThunk, findLikesThunk, userLikesDrinkThunk} from "../likes/likes-thunks";
 import NavigationSidebar from "../navigation-sidebar";
 import {BiDrink} from "react-icons/bi"
+import {findAllUsersThunk} from "../omdb/users/users-thunk";
 // import {FaHome} from "react-icons/fa";
 // import {createReviewThunk} from "../omdb/reviews/reviews-thunks";
 
@@ -13,9 +14,11 @@ const DrinkDetails = () => {
     const placeID = useParams().placeId
     const {details} = useSelector((state) => state.omdb)
     const {likes} = useSelector((state) => state.likes)
+    const {users} = useSelector((state) => state.users)
 
     useEffect(() => {
-        dispatch(findLikesThunk)
+        dispatch(findLikesThunk())
+        dispatch(findAllUsersThunk())
     })
 
 
@@ -25,12 +28,37 @@ const DrinkDetails = () => {
     let loggedIn = !(currentUser == null)
 
     const isCollected = () => {
+
         let filteredC = likes.filter(like => like.drink == placeID);
+
         return filteredC
     }
 
+    const deleteLikeHandler = () => {
+        console.log("trying to delete")
+        dispatch(deleteLikeThunk(placeID))
+    }
+
     let isDrinkCollected = isCollected().length > 0
-    console.log(isDrinkCollected)
+    let userCollected = null
+    if(isDrinkCollected){
+        const like = isCollected()[0]
+        userCollected = like.user
+
+    }
+    const findUserCollected = () => {
+        let usersF = users.filter((u) => u._id == userCollected)
+        userCollected = usersF[0]
+    }
+
+     findUserCollected()
+
+
+
+
+
+
+
 
     const dispatch = useDispatch()
     useEffect(() => {
@@ -53,6 +81,11 @@ const DrinkDetails = () => {
     let navigate = useNavigate();
     const routeLogin = () => {
         navigate(`../login`)
+    }
+    const routeChange = () => {
+        if(userCollected !== null){
+            navigate(`../profile/`+userCollected._id)
+        }
     }
 
 
@@ -85,7 +118,8 @@ const DrinkDetails = () => {
                             }<BiDrink/>       C O L L E C T       <BiDrink/></button>)}
                             {loggedIn && isDrinkCollected && <div  className="text-light bg-danger">{
                                 //dispatch(userLikesDrinkThunk())
-                            }    THIS DRINK HAS ALREADY BEEN COLLECTED    <BiSad/></div>
+                            }    THIS DRINK HAS ALREADY BEEN COLLECTED BY
+                                <span className={"text-decoration-underline"} onClick={routeChange}>@{userCollected.username}</span>   <BiSad/></div>
                             }
 
                             {loggedIn || <button
@@ -97,9 +131,7 @@ const DrinkDetails = () => {
                             </button>}
                         </div>
 
-                        {/*<div className="col">*/}
-                        {/*    <button type="button" className="btn btn-danger">Did not like it</button>*/}
-                        {/*</div>*/}
+
                     </div>
 
                 </div>
@@ -119,12 +151,16 @@ const DrinkDetails = () => {
                 </div>
 
 
-                <div className="row">
-                    <div>if claimed: This drink has been collected: @theUserWhoClickedThatButtonFirst</div>
-                    <div>else: This drink is still up for grabs</div>
-                    {/*<div>This drink has been liked by: [list of users]</div>*/}
-                    {/*<div>This drink has been disliked by: [list of users]</div>*/}
-                </div>
+
+
+                {loggedIn && currentUser.role == "admin" && isDrinkCollected &&
+                <button
+                    onClick={deleteLikeHandler}
+                    type={"button"}
+
+                    className=" btn btn-outline text-danger">
+                    UNCOLLECT DRINK
+                </button>}
 
 
 

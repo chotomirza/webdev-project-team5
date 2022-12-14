@@ -12,10 +12,10 @@ const followsReducer = createSlice({
             state.followers.push(payload)
         },
         [findFollowersThunk.fulfilled]: (state, {payload}) => {
-            state.followers = payload
+            state.followers.push(payload)
         },
         [findFollowingThunk.fulfilled]: (state, {payload}) => {
-            state.following = payload
+            state.following.push(payload)
         },
     }
 })

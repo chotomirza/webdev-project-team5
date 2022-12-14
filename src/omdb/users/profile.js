@@ -61,10 +61,7 @@ const Profile = () => {
                             <DisplayUser user={currentUser}/>
                         </div>
 
-                        <div className={"row ps-2"}>
-                            <button type={"button"} onClick={routeChange} className={"col-3 btn me-5 btn-outline-success"}>Edit Profile</button>
-                            {currentUser.admin && <button type={"button"} onClick={routeToAdmin} className={"btn col-3 btn-outline-success"}>Admin Mode</button>}
-                        </div>
+
                         <hr/>
 
 

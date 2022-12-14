@@ -1,6 +1,7 @@
 import NavigationSidebar from "../navigation-sidebar";
 import React from "react";
 import {useNavigate} from "react-router";
+import AdminUsers from "./admin-users";
 
 function Admin() {
     let navigate = useNavigate();
@@ -23,12 +24,12 @@ function Admin() {
               <h1>Welcome to Admin Mode</h1>
             <hr/>
               <p className={"arial-font"}>As an admin you are able to make any other user an admin.
-              You may also remove any comments that are not in compliance with the page's guidelines.</p>
+              You may also remove any user that is not in compliance with the page's guidelines.</p>
 
             <hr/>
             <br/>
-            <button type={"button"} onClick={routeAdminUsers} className={"btn mb-5 w-100 btn-outline-success"}>Manage Users</button>
-            <button type={"button"} onClick={routeAdminReviews} className={"btn w-100 btn-outline-success"}>Manage Reviews</button>
+
+
             </div>
         </div>
     );

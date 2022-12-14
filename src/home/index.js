@@ -8,15 +8,25 @@ import {TbCrown} from "react-icons/tb";
 import {useDispatch, useSelector} from "react-redux";
 import {findLikesByUser} from "../likes/likes-service";
 import {useNavigate} from "react-router";
+import {findLikeByUserThunk} from "../likes/likes-thunks";
 
 function PersonalizedHome() {
     const {currentUser} = useSelector((state) => state.users)
 
 
+    if (currentUser) {
+        return(
+        <div>
+            <span className={"display-6"}>Welcome Back {currentUser.firstName}!
+            </span>
+            </div>
+        )
+    } else {
+        return(
+                <span className={"display-6"}>Welcome!</span>
+            )
+    }
 
-    return(
-        <span className={"display-6"}>Welcome {currentUser.firstName}!</span>
-    )
 }
 
 function Home() {
@@ -54,15 +64,15 @@ function Home() {
                     <p>Here you can search for recipes on your favorite cocktails!<br/>
                     <TbCrown/> Compete with other users to collect the most number of drinks! <TbCrown/></p>
                 <hr/>
-                    {loggedIn && <PersonalizedHome/>}
+                    <PersonalizedHome/>
 
-                    <h4 className={"display-6 text-info"}>Trending Drinks:</h4>
-                    <div className={'row'}>
-                        <GenericDrinksFunc/>
+                    <h4 className={"display-6 text-info"}>Check Out These Drinks:</h4>
+                    <div className={'row justify-content-center'}>
+                        <GenericDrinksFunc />
                         <GenericDrinksFunc/>
                         <GenericDrinksFunc/>
                     </div>
-                    <div className={'row'}>
+                    <div className={'row justify-content-center'}>
                         <GenericDrinksFunc/>
                         <GenericDrinksFunc/>
                         <GenericDrinksFunc/>
