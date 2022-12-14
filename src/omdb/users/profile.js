@@ -143,7 +143,7 @@ const Profile = () => {
                 <button
                     className="btn btn-outline text-primary text-decoration-bold"
                     onClick={routeChangeEdit}>
-                    Edit Profile
+                    Edit Email
                 </button>
 
 

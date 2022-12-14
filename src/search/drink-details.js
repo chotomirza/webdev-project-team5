@@ -136,14 +136,14 @@ const DrinkDetails = () => {
                 </div>
 
                 <div className="row">
-                    <ul className="list-group" style={{paddingBottom:'20px'}}>
+                    <ul className="list-group text-start" style={{paddingBottom:'20px'}}>
                         <li className="list-group-item"><b>Category:</b> {details.strCategory}</li>
-                        <li className="list-group-item"><b>Instruction:</b> {details.strInstructions}</li>
+                        <li className="list-group-item text-start"><b>Instruction:</b> {details.strInstructions}</li>
                         {/*<li className="list-group-item"><b>Category:</b> {details.drinks["0"].strCategory}</li>*/}
                         {/*<li className="list-group-item"><b>Instruction:</b> {details.drinks["0"].strInstructions}</li>*/}
                     </ul>
 
-                    <ul className="list-group"style={{paddingBottom:'20px'}}>
+                    <ul className="list-group text-start"style={{paddingBottom:'20px'}}>
                         <h6><b>Top 3 Ingredients:</b></h6>
                         {/*<li className="list-group-item">1: {details.drinks["0"].strIngredient1}</li>*/}
                         {/*<li className="list-group-item">2: {details.drinks["0"].strIngredient2}</li>*/}
