@@ -14,9 +14,11 @@ const omdbReducer = createSlice({
     extraReducers: {
         [findDrinkBySearchTermThunk.fulfilled]: (state, action) => {
             state.movies = action.payload
+            state.details = action.payload
         },
         [findDrinkByDrinkIdThunk.fulfilled]: (state, action) => {
             state.movies = action.payload
+            state.details = action.payload
         }
     }
 })

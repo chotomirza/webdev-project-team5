@@ -7,8 +7,7 @@ import {deleteLikeThunk, findLikesThunk, userLikesDrinkThunk} from "../likes/lik
 import NavigationSidebar from "../navigation-sidebar";
 import {BiDrink} from "react-icons/bi"
 import {findAllUsersThunk} from "../omdb/users/users-thunk";
-// import {FaHome} from "react-icons/fa";
-// import {createReviewThunk} from "../omdb/reviews/reviews-thunks";
+
 
 const DrinkDetails = () => {
     const placeID = useParams().placeId
@@ -78,6 +77,7 @@ const DrinkDetails = () => {
 
     const one = {};
     const two = JSON.stringify(details, null, 2);
+
     let navigate = useNavigate();
     const routeLogin = () => {
         navigate(`../login`)
@@ -103,15 +103,15 @@ const DrinkDetails = () => {
 
 
                 <div id='center_section' className="text-left col-xl-8 col-lg-9 col-md-9 col-sm-9">
-                    <h1>{details.drinks["0"].strDrink}</h1>
-                    <img src={details.drinks["0"].strDrinkThumb} width="40%" height="auto"/>
+
+
+                    <h1>{details.strDrink}</h1>
+                    <img src={details.strDrinkThumb} width="40%" height="auto"/>
+
+                    {/*<h1>{details.drinks["0"].strDrink}</h1>*/}
+                    {/*<img src={details.drinks["0"].strDrinkThumb} width="40%" height="auto"/>*/}
 
                     <div className="row pt-4 pb-4 ">
-                        {/*<div className="col">*/}
-                        {/*    <button type="button" className="btn btn-success">I tried making this (remove this)</button>*/}
-                        {/*</div>*/}
-
-
                         <div className="col">
                             {loggedIn && (isDrinkCollected || <button type="button" className="btn btn-warning" onClick={handleLikeBtn}>{
                                 //dispatch(userLikesDrinkThunk())
@@ -138,15 +138,20 @@ const DrinkDetails = () => {
 
                 <div className="row">
                     <ul className="list-group" style={{paddingBottom:'20px'}}>
-                        <li className="list-group-item"><b>Category:</b> {details.drinks["0"].strCategory}</li>
-                        <li className="list-group-item"><b>Instruction:</b> {details.drinks["0"].strInstructions}</li>
+                        <li className="list-group-item"><b>Category:</b> {details.strCategory}</li>
+                        <li className="list-group-item"><b>Instruction:</b> {details.strInstructions}</li>
+                        {/*<li className="list-group-item"><b>Category:</b> {details.drinks["0"].strCategory}</li>*/}
+                        {/*<li className="list-group-item"><b>Instruction:</b> {details.drinks["0"].strInstructions}</li>*/}
                     </ul>
 
                     <ul className="list-group"style={{paddingBottom:'20px'}}>
                         <h6><b>Top 3 Ingredients:</b></h6>
-                        <li className="list-group-item">1: {details.drinks["0"].strIngredient1}</li>
-                        <li className="list-group-item">2: {details.drinks["0"].strIngredient2}</li>
-                        <li className="list-group-item">3: {details.drinks["0"].strIngredient3}</li>
+                        {/*<li className="list-group-item">1: {details.drinks["0"].strIngredient1}</li>*/}
+                        {/*<li className="list-group-item">2: {details.drinks["0"].strIngredient2}</li>*/}
+                        {/*<li className="list-group-item">3: {details.drinks["0"].strIngredient3}</li>*/}
+                        <li className="list-group-item">1: {details.strIngredient1}</li>
+                        <li className="list-group-item">2: {details.strIngredient2}</li>
+                        <li className="list-group-item">3: {details.strIngredient3}</li>
                     </ul>
                 </div>
 
