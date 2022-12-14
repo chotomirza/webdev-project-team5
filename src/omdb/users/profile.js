@@ -32,6 +32,11 @@ const Profile = () => {
         navigate(path);
     }
 
+    const routeChangeEdit = () => {
+        let path=`../profile/edit`;
+        navigate(path);
+    }
+
 
 
     const {followers, following} = useSelector((state) => state.follows)
@@ -134,6 +139,13 @@ const Profile = () => {
                     {/*</div>*/}
 
                 </div>
+                <br/>
+                <button
+                    className="btn btn-outline text-primary text-decoration-bold"
+                    onClick={routeChangeEdit}>
+                    Edit Profile
+                </button>
+
 
 
 
