@@ -31,6 +31,8 @@ const Profile = () => {
         navigate(path);
     }
 
+
+
     const {followers, following} = useSelector((state) => state.follows)
     useEffect(() => {
         dispatch(findFollowersThunk(uid))
@@ -55,7 +57,7 @@ const Profile = () => {
                 currentUser &&
                 <div>
 
-                        <h3 className={"text-info"}>Hey {currentUser.firstName}!</h3>
+                        <span className={"display-3 text-info"}>Hey {currentUser.firstName}!</span>
                         <div className={"row pt-5 mb-5"}>
                             <DisplayUser user={currentUser}/>
                         </div>
@@ -81,7 +83,7 @@ const Profile = () => {
                 <div className={"pt-5"}>
 
 
-                <h2>Following : {following.length}</h2>
+                <h2 className={"text-success"}>Following : {following.length}</h2>
                 <div className="list-group">
                     {
                         following && following.map((follow) =>
@@ -93,7 +95,7 @@ const Profile = () => {
                 </div>
 
 
-                <h2>Followers : {followers.length}</h2>
+                <h2 className={"text-success"}>Followers : {followers.length}</h2>
                 <div className="list-group">
                     {
                         followers && followers.map((follow) =>
@@ -105,7 +107,7 @@ const Profile = () => {
                 </div>
 
 
-                    <h2>Collection : {likes.length}</h2>
+                    <h2 className={"text-success"}>Collection : {likes.length}</h2>
                     <div className="list-group">
                         {
                             likes && likes.map((drinkcollection) =>
